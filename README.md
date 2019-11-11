@@ -1,18 +1,18 @@
 # blind-vacation-fullstack
 
-## Blind Vacation - API
+## Blind Vacation - Full-Stack
 
 *Team Fingerhearts*
-* Biniam Tesfamariam 
-* Karina Chen
+* Chris Cummings
+* Enrique A Rivera De Leon
 * (Kyungrae Kim)
 
 ----
 
 ## Description
-This is fullstack side of Blind Vacation app. 
+This is fullstack side of the Blind Vacation app. 
 
-What is Blind Vacation app?  
+What is a Blind Vacation app?  
 This is solving the problem of a person who wants to plan a vacation but doesn't have enough time.  Through our quick survey, we will plan out a trip (from location to activities to lodging) and return a full itinerary to the user of a trip they can go on.  This saves the user time that they don't have planning their own vacation.
 
 ---
@@ -25,7 +25,7 @@ $ git clone https://github.com/fingerhearts/blind-vacation-fullstack.git
 ```
 
 ### To run the program from Visual Studio:
-Select ```File``` -> ```Open``` -> ```BlindVacationFullstack``
+Select ```File``` -> ```Open``` -> ```BlindVacationFullstack```
 
 Next navigate to the location you cloned the Repository.
 
