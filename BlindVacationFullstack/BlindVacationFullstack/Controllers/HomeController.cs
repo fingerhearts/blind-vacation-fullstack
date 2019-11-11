@@ -21,8 +21,8 @@ namespace BlindVacationFullstack.Controllers
             {
                 try
                 {
-                    client.BaseAddress = new Uri("ourAPIurl");
-                    var response = await client.GetAsync("test");
+                    client.BaseAddress = new Uri("https://blindvacationapi.azurewebsites.net");
+                    var response = await client.GetAsync("api/hello");
                     response.EnsureSuccessStatusCode();
 
                     var stringResult = await response.Content.ReadAsStringAsync();
