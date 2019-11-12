@@ -35,21 +35,25 @@ Then select and open ```BlindVacationFullstack.sln```
 
 ---
 
+### User Stories
+https://github.com/orgs/fingerhearts/projects/1
+
+---
+
+### Wireframe
+![Wireframe](https://github.com/fingerhearts/blind-vacation-fullstack/tree/assets/wireframe.png)
+
+---
+
+### Domain Model
+![DomainModel](https://github.com/fingerhearts/blind-vacation-fullstack/tree/assets/domain-model-fullstack.jpg)
+
+---
+
 ### Entity Relationship Diagram
-![ERD](https://via.placeholder.com/960x720)
+![ERD](https://github.com/fingerhearts/blind-vacation-fullstack/tree/assets/erd-fullstack.jpg)
 
-* ERD description goes here
-
----
-
-### Visuals
-### Placeholder
-![Placeholder1](https://via.placeholder.com/375x812)
-
----
-
-### Credits
-* Placeholder
+* Users table has one to many relationship with SavedCodes table
 
 ---
 
