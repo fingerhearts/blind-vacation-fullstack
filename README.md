@@ -41,17 +41,17 @@ https://github.com/orgs/fingerhearts/projects/1
 ---
 
 ### Wireframe
-![Wireframe](https://github.com/fingerhearts/blind-vacation-fullstack/tree/assets/wireframe.png)
+![Wireframe](https://github.com/fingerhearts/blind-vacation-fullstack/blob/development/assets/wireframe.png)
 
 ---
 
 ### Domain Model
-![DomainModel](https://github.com/fingerhearts/blind-vacation-fullstack/tree/assets/domain-model-fullstack.jpg)
+![DomainModel](https://github.com/fingerhearts/blind-vacation-fullstack/blob/development/assets/domain-model-fullstack.jpg)
 
 ---
 
 ### Entity Relationship Diagram
-![ERD](https://github.com/fingerhearts/blind-vacation-fullstack/tree/assets/erd-fullstack.jpg)
+![ERD](https://github.com/fingerhearts/blind-vacation-fullstack/blob/development/assets/erd-fullstack.jpg)
 
 * Users table has one to many relationship with SavedCodes table
 
