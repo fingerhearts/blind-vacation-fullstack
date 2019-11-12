@@ -2,15 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>a1a8baf2-2e64-4c73-ae6d-0cb8e5b75d9c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Data\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
