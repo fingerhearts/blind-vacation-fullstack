@@ -89,7 +89,7 @@ namespace BlindVacationFullstack.Controllers
             {
                 return NotFound();
             }
-            return Redirect($"~/user/details/{user.ID}");
+            return View(user);
         }
 
         [HttpPost]

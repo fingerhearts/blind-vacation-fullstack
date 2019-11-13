@@ -1,6 +1,9 @@
+using BlindVacationFullstack.Controllers;
 using BlindVacationFullstack.Data;
 using BlindVacationFullstack.Models;
+using BlindVacationFullstack.Models.Interfaces;
 using BlindVacationFullstack.Models.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
@@ -134,6 +137,98 @@ namespace XUnitTestProject1
                 var result = service.GetUser(user.ID);
 
                 Assert.Equal("Goopty", result.Result.Name);
+            }
+        }
+        #endregion
+        #region MVC Tests
+        [Fact]
+        public async void UserDetailsControllerRouteCheck()
+        {
+            DbContextOptions<VacationMVCDbContext> options = new DbContextOptionsBuilder<VacationMVCDbContext>()
+                .UseInMemoryDatabase("UserDetailsRouteCheck")
+                .Options;
+            using (VacationMVCDbContext context = new VacationMVCDbContext(options))
+            {
+                UserService service = new UserService(context);
+                User user = new User();
+                user.ID = 7;
+                user.Name = "Mloopty";
+                user.FaveColor = User.Color.Black;
+                context.Add(user);
+                await context.SaveChangesAsync();
+
+                UserController controller = new UserController(service);
+                var result = await controller.Details(user.ID) as ViewResult;
+                User resultUser = (User)result.ViewData.Model;
+
+                Assert.Equal("Mloopty", resultUser.Name);
+            }
+        }
+        [Fact]
+        public async void UserEditControllerRouteCheck()
+        {
+            DbContextOptions<VacationMVCDbContext> options = new DbContextOptionsBuilder<VacationMVCDbContext>()
+                .UseInMemoryDatabase("UserEditRouteCheck")
+                .Options;
+            using (VacationMVCDbContext context = new VacationMVCDbContext(options))
+            {
+                UserService service = new UserService(context);
+                User user = new User();
+                user.ID = 8;
+                user.Name = "Loopty";
+                user.FaveColor = User.Color.Cyan;
+                context.Add(user);
+                await context.SaveChangesAsync();
+
+                UserController controller = new UserController(service);
+                var result = await controller.Edit(user.ID) as ViewResult;
+                User resultUser = (User)result.ViewData.Model;
+
+                Assert.Equal("Loopty", resultUser.Name);
+            }
+        }
+        [Fact]
+        public async void UserDeleteControllerRouteCheck()
+        {
+            DbContextOptions<VacationMVCDbContext> options = new DbContextOptionsBuilder<VacationMVCDbContext>()
+                .UseInMemoryDatabase("UserDeleteRouteCheck")
+                .Options;
+            using (VacationMVCDbContext context = new VacationMVCDbContext(options))
+            {
+                UserService service = new UserService(context);
+                User user = new User();
+                user.ID = 9;
+                user.Name = "Roopty";
+                user.FaveColor = User.Color.Green;
+                context.Add(user);
+                await context.SaveChangesAsync();
+
+                UserController controller = new UserController(service);
+                var result = await controller.Delete(user.ID) as ViewResult;
+                User resultUser = (User)result.ViewData.Model;
+
+                Assert.Equal("Roopty", resultUser.Name);
+            }
+        }
+        [Fact]
+        public async void UserCreateControllerTest()
+        {
+            DbContextOptions<VacationMVCDbContext> options = new DbContextOptionsBuilder<VacationMVCDbContext>()
+                .UseInMemoryDatabase("UserDeleteRouteCheck")
+                .Options;
+            using (VacationMVCDbContext context = new VacationMVCDbContext(options))
+            {
+                UserService service = new UserService(context);
+                User user = new User();
+                user.ID = 10;
+                user.Name = "Droopty";
+                user.FaveColor = User.Color.Green;
+
+                UserController controller = new UserController(service);
+                await controller.Create(user);
+                var result = await context.Users.FirstOrDefaultAsync(x => x.ID == user.ID);
+
+                Assert.Equal("Droopty", result.Name);
             }
         }
         #endregion
