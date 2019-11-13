@@ -1,0 +1,17 @@
+﻿body {
+    background-color: beige;
+    color: black;
+}
+
+#home_image {
+    box-sizing: border-box;
+    display: block;
+    width: 60%;
+    margin: 10px auto;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+}
+
