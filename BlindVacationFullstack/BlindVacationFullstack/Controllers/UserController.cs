@@ -55,7 +55,7 @@ namespace BlindVacationFullstack.Controllers
             {
                 await _context.CreateUser(user);
                 //TODO: Redirect to details or MyTrips page
-                return RedirectToAction(nameof(Index));
+                return Redirect($"~/user/details/{user.ID}");
             }
             return View(user);
         }
@@ -89,7 +89,7 @@ namespace BlindVacationFullstack.Controllers
             {
                 return NotFound();
             }
-            return View(user);
+            return Redirect($"~/user/details/{user.ID}");
         }
 
         [HttpPost]

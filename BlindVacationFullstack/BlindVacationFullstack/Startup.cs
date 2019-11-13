@@ -37,7 +37,7 @@ namespace BlindVacationFullstack
             services.AddMvc();
 
             string connString = Environment.IsDevelopment()
-                ? Configuration["ConnectionStrings:DefaultConnection"]
+                ? Configuration["ConnectionStrings:ProductionConnection"]
                 : Configuration["ConnectionStrings:ProductionConnection"];
 
             services.AddDbContext<VacationMVCDbContext>(options =>
