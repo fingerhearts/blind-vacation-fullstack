@@ -1,7 +1,17 @@
-﻿
-@{
-    ViewData["Title"] = "Delete";
-}
+﻿@model BlindVacationFullstack.Models.Trip
 
-<h1>Delete</h1>
+<html>
+<head>
+    <title></title>
+</head>
 
+<body>
+    <h2> @Model.Name</h2>
+    <form asp-action="Delete">
+        <fieldset>
+            <input type="hidden" asp-for="@Model.RecommendationCode" />
+        </fieldset>
+        <button type="submit" value="Delete">Delete</button>
+    </form>
+</body>
+</html>
