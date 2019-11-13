@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/reset.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <header>
+        @*Code from https://getbootstrap.com/docs/4.3/components/navs/*@
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: darkgreen;">
+            <a class="navbar-brand" href="#">Brainless Vacations</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/MyVacations">My Vacations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Popular">Popular Trips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Survey">Take the Survey</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+        @RenderBody()
+</body>
+</html>
