@@ -56,6 +56,20 @@ namespace BlindVacationFullstack.Models.Services
         {
             return await _context.Users.FirstOrDefaultAsync(x => x.ID == userid);
         }
+
+        public async Task<int> Login(string Name, User.Color color)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(x => x.Name == Name && x.FaveColor == color);
+            if (user == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return user.ID;
+            }
+        }
+
         /// <summary>
         /// Takes in a user and updates the database with new user details.
         /// </summary>

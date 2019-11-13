@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using static BlindVacationFullstack.Models.User;
 
 namespace BlindVacationFullstack.Models.Interfaces
 {
@@ -10,6 +11,7 @@ namespace BlindVacationFullstack.Models.Interfaces
         Task UpdateUser(User user);
         Task DeleteUser(int userid);
         Task<IEnumerable<Trip>> GetSavedTrips(int userid);
+        Task<int> Login(string Name, Color color);
 
     }
 }

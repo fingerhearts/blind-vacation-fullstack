@@ -7,6 +7,7 @@ using BlindVacationFullstack.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BlindVacationFullstack.Models;
+using static BlindVacationFullstack.Models.User;
 
 namespace BlindVacationFullstack.Controllers
 {
@@ -24,6 +25,17 @@ namespace BlindVacationFullstack.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Index(string Name, Color FaveColor)
+        {
+            int userID = await _context.Login(Name, FaveColor);
+            if (userID <= 0)
+            {
+                return NotFound();
+            }
+            return Redirect($"user/details/{userID}");
+        }
+
         //C
         public IActionResult Create()
         {
@@ -37,7 +49,6 @@ namespace BlindVacationFullstack.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public async Task<IActionResult> Create([Bind("ID,Name,FaveColor")] User user)
         {
             if(ModelState.IsValid)
