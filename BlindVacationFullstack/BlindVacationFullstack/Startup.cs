@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlindVacationFullstack.Data;
+using BlindVacationFullstack.Models.Interfaces;
+using BlindVacationFullstack.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +42,8 @@ namespace BlindVacationFullstack
 
             services.AddDbContext<VacationMVCDbContext>(options =>
             options.UseSqlServer(connString));
+
+            services.AddScoped<IUserManager, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +60,7 @@ namespace BlindVacationFullstack
 
             app.UseEndpoints(endpoints =>
             {
-                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+                    endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

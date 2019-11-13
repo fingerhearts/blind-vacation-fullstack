@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+@model BlindVacationFullstack.Models.User
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>Create</h1>
+    <form asp-action="Create">
+        <fieldset>
+            <label asp-for="@Model.Name">Name</label>
+            <input asp-for="@Model.Name" />
+        </fieldset>
+        <fieldset>
+            <label asp-for="@Model.FaveColor">Select your favorite color</label>
+            <select asp-for="@Model.FaveColor" asp-items="@Html.GetEnumSelectList(typeof(BlindVacationFullstack.Models.User.Color))"></select>
+        </fieldset>
+        <button type="submit" value="Create">Submit User</button>
+    </form>
+</body>
+</html>
