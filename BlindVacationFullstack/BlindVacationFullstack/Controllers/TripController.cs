@@ -7,5 +7,6 @@ namespace BlindVacationFullstack.Controllers
 {
     public class TripController
     {
+
     }
 }
