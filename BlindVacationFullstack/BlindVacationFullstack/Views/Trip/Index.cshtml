@@ -1,0 +1,37 @@
+﻿@model BlindVacationFullstack.Models.Survey
+Hello it me survey
+
+<form asp-action="Index">
+    <fieldset>
+        Would you like to travel inside the United States or go abroad?
+        <label asp-for="@Model.InUSA" />
+        <input type="radio" asp-for="@Model.InUSA" value="True" /> In USA
+        <input type="radio" asp-for="@Model.InUSA" value="False" /> Outside USA
+    </fieldset>
+    <fieldset>
+        Do you want to travel to a hot or cold location?
+        <label asp-for="@Model.LikesHot" />
+        <input type="radio" asp-for="@Model.LikesHot" value="True" /> Hot
+        <input type="radio" asp-for="@Model.LikesHot" value="False" /> Cold
+    </fieldset>
+    <fieldset>
+        What kind of budget are you traveling with?
+        <label asp-for="@Model.Price" />
+        <input type="radio" asp-for="@Model.Price" value="1" /> $
+        <input type="radio" asp-for="@Model.Price" value="2" /> $$
+        <input type="radio" asp-for="@Model.Price" value="3" /> $$$
+    </fieldset>
+    <fieldset>
+        Are you going to be traveling with children?
+        <label asp-for="@Model.HasChildren" />
+        <input type="radio" asp-for="@Model.HasChildren" value="True" /> With Family
+        <input type="radio" asp-for="@Model.HasChildren" value="False" /> Without Family
+    </fieldset>
+    <fieldset>
+        Do you want to do an outdoor or indoor focused vacation?
+        <label asp-for="@Model.LikesOutdoor" />
+        <input type="radio" asp-for="@Model.LikesOutdoor" value="True" /> Outdoor
+        <input type="radio" asp-for="@Model.LikesOutdoor" value="False" /> Indoor
+    </fieldset>
+    <button type="submit">Generate Vacation!</button>
+</form>

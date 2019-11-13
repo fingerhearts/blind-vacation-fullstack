@@ -1,1 +1,22 @@
-﻿
+﻿@model BlindVacationFullstack.Models.ViewModels.EditTripViewModel
+
+<h2>@Model.City.Name</h2>
+<p>@Model.City.Description</p>
+
+<img src="@Model.City.ImgUrl" />
+
+<h3>@Model.Hotel.Name</h3>
+<img src="@Model.Hotel.ImgUrl" />
+
+<h4>@Model.Activity.Name</h4>
+
+<form>
+    <input type="hidden" asp-for="@Model.AnswerCode" />
+    <input type="hidden" asp-for="@Model.City.Name" />
+    <input asp-for="@Model.Trip.Name" />
+    <button type="submit">Save Your Vacation!</button>
+</form>
+
+<form>
+    <button type="submit">Retake the Survey</button>
+</form>
