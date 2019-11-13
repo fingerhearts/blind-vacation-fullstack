@@ -8,10 +8,30 @@
     display: block;
     width: 60%;
     margin: 10px auto;
+    border-radius: 25px;
 }
+.IndexButton {
+    padding: 10px 20px;
+    background-color: darkgreen;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    margin: 10px auto;
+    width: 100px;
+    text-align: center;
+}
+    .IndexButton:hover {
+        background-color: green;
+        color: white;
+        
+    }
 
 h1 {
     font-size: 4em;
     font-weight: bold;
+}
+
+.bg-light {
+    background-color: darkgreen;
 }
 
