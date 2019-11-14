@@ -39,6 +39,40 @@ namespace BlindVacationFullstack.Models.Services
             return await _context.SavedTrips.FirstOrDefaultAsync(x => x.AnswerCode == answerCode && x.UserID == userid);
         }
 
+        public async Task SaveAsPopularTrip(PopularTrip trip)
+        {
+            var popularTrips = await _context.PopularTrips.ToListAsync();
+            bool found = false;
+            foreach(var popTrip in popularTrips)
+            {
+                if(popTrip.AnswerCode == trip.AnswerCode)
+                {
+                    popTrip.Popularity++;
+                    _context.Update(popTrip);
+                    await _context.SaveChangesAsync();
+                    found = true;
+                }
+            }
+            if (found == false)
+            {
+                await _context.AddAsync(trip);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task SaveTrip(SavedTrip savedTrip)
+        {
+            try
+            {
+            await _context.AddAsync(savedTrip);
+            await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public async Task UpdateTrip(SavedTrip trip)
         {
             _context.Update(trip);

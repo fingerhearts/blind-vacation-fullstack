@@ -14,7 +14,9 @@ namespace BlindVacationFullstack.Models.ViewModels
         public City City { get; set; }
         public Hotel Hotel {get; set;}
         public Activity Activity { get; set;}
-        public string RecommendationCode { get; set; }
+        public string CityName { get; set; }
+        public string VacationName { get; set; }
+        public int UserID { get; set; }
         
     }
 }
