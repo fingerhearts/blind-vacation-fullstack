@@ -42,9 +42,9 @@ namespace BlindVacationFullstack.Models.Services
         /// </summary>
         /// <param name="userid">Takes in a user ID as an integer.</param>
         /// <returns>Returns the list of Trips as a List Collection</returns>
-        public async Task<IEnumerable<Trip>> GetSavedTrips(int userid)
+        public async Task<IEnumerable<SavedTrip>> GetSavedTrips(int userid)
         {
-            var trips = await _context.Trips.Where(x => x.UserID == userid).ToListAsync();
+            var trips = await _context.SavedTrips.Where(x => x.UserID == userid).ToListAsync();
             return trips;
         }
         /// <summary>

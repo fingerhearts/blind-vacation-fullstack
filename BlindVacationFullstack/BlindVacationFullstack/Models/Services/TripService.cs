@@ -15,25 +15,25 @@ namespace BlindVacationFullstack.Models.Services
         {
             _context = context;
         }
-        public async Task CreateTrip(Trip trip)
+        public async Task CreateTrip(SavedTrip trip)
         {
             await _context.AddAsync(trip);
             await _context.SaveChangesAsync();
 
         }
 
-        public async Task DeleteTrip(int userid, int recommendationCode)
+        public async Task DeleteTrip(int userid, string answerCode)
         {
-            _context.Remove(await (GetTrip(userid, recommendationCode)));
+            _context.Remove(await (GetTrip(userid, answerCode)));
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Trip> GetTrip(int userid, int recommendationCode)
+        public async Task<SavedTrip> GetTrip(int userid, string answerCode)
         {
-            return await _context.Trips.FirstOrDefaultAsync(x => x.RecommendationCode == recommendationCode && x.UserID == userid);
+            return await _context.SavedTrips.FirstOrDefaultAsync(x => x.AnswerCode == answerCode && x.UserID == userid);
         }
 
-        public async Task UpdateTrip(Trip trip)
+        public async Task UpdateTrip(SavedTrip trip)
         {
             _context.Update(trip);
             await _context.SaveChangesAsync();

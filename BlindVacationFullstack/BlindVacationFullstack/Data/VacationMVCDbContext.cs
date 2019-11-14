@@ -17,8 +17,8 @@ namespace BlindVacationFullstack.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Trip>().HasKey(trip =>
-            new { trip.UserID, trip.RecommendationCode });
+            modelBuilder.Entity<SavedTrip>().HasKey(trip =>
+            new { trip.UserID, trip.AnswerCode });
 
 
             //data seeding
@@ -53,10 +53,46 @@ namespace BlindVacationFullstack.Data
                     Name = "Chris",
                     FaveColor = Color.Pink
                 });
+
+            modelBuilder.Entity<SavedTrip>().HasData(
+                new SavedTrip
+                {
+                    UserID = 1,
+                    CityName = "Tunisia",
+                    VacationName = "Chris bachelor party",
+                    AnswerCode = "0,1,1,0,1"
+                },
+                new SavedTrip
+                {
+                    UserID = 1,
+                    CityName = "Paris",
+                    VacationName = "Chris divorce party",
+                    AnswerCode = "0,1,3,0,0"
+                });
+            modelBuilder.Entity<PopularTrip>().HasData(
+                new PopularTrip
+                {
+                    ID = 1,
+                    CityName = "North Korea",
+                    VacationName = "Chris baptism party",
+                    AnswerCode = "0,1,1,0,1",
+                    Popularity = 3
+                },
+                new PopularTrip
+                {
+                    ID = 2,
+                    CityName = "Paris",
+                    VacationName = "Chris Refugee party",
+                    AnswerCode = "0,1,3,0,0",
+                    Popularity = 69
+                });
+
+
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Trip> Trips { get; set; }
+        public DbSet<SavedTrip> SavedTrips { get; set; }
+        public DbSet<PopularTrip> PopularTrips { get; set; }
 
     }
 }

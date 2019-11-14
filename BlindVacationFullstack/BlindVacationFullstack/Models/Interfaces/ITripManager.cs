@@ -7,9 +7,9 @@ namespace BlindVacationFullstack.Models.Interfaces
 {
     interface ITripManager
     {
-        Task CreateTrip(Trip trip);
-        Task<Trip> GetTrip(int userid, int recommendationCode);
-        Task UpdateTrip(Trip trip);
-        Task DeleteTrip(int userid, int recommendationCode);
+        Task CreateTrip(SavedTrip trip);
+        Task<SavedTrip> GetTrip(int userid, string answerCode);
+        Task UpdateTrip(SavedTrip trip);
+        Task DeleteTrip(int userid, string answerCode);
     }
 }

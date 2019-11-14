@@ -18,23 +18,81 @@ namespace BlindVacationFullstack.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("BlindVacationFullstack.Models.Trip", b =>
+            modelBuilder.Entity("BlindVacationFullstack.Models.PopularTrip", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AnswerCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CityName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Popularity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VacationName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("PopularTrips");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            AnswerCode = "0,1,1,0,1",
+                            CityName = "North Korea",
+                            Popularity = 3,
+                            VacationName = "Chris baptism party"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            AnswerCode = "0,1,3,0,0",
+                            CityName = "Paris",
+                            Popularity = 69,
+                            VacationName = "Chris Refugee party"
+                        });
+                });
+
+            modelBuilder.Entity("BlindVacationFullstack.Models.SavedTrip", b =>
                 {
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
-                    b.Property<int>("RecommendationCode")
-                        .HasColumnType("int");
+                    b.Property<string>("AnswerCode")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("City")
+                    b.Property<string>("CityName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("VacationName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserID", "RecommendationCode");
+                    b.HasKey("UserID", "AnswerCode");
 
-                    b.ToTable("Trips");
+                    b.ToTable("SavedTrips");
+
+                    b.HasData(
+                        new
+                        {
+                            UserID = 1,
+                            AnswerCode = "0,1,1,0,1",
+                            CityName = "Tunisia",
+                            VacationName = "Chris bachelor party"
+                        },
+                        new
+                        {
+                            UserID = 1,
+                            AnswerCode = "0,1,3,0,0",
+                            CityName = "Paris",
+                            VacationName = "Chris divorce party"
+                        });
                 });
 
             modelBuilder.Entity("BlindVacationFullstack.Models.User", b =>
@@ -87,10 +145,10 @@ namespace BlindVacationFullstack.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BlindVacationFullstack.Models.Trip", b =>
+            modelBuilder.Entity("BlindVacationFullstack.Models.SavedTrip", b =>
                 {
                     b.HasOne("BlindVacationFullstack.Models.User", "User")
-                        .WithMany("Trips")
+                        .WithMany("SavedTrips")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
