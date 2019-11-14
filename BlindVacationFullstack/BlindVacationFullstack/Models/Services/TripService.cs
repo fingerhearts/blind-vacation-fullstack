@@ -56,8 +56,9 @@ namespace BlindVacationFullstack.Models.Services
         {
             return await _context.SavedTrips.FirstOrDefaultAsync(x => x.AnswerCode == answerCode && x.UserID == userid);
         }
+
         /// <summary>
-        /// 
+        /// Saved the newly recommended trip, and the
         /// </summary>
         /// <param name="trip"></param>
         /// <returns></returns>
@@ -81,11 +82,8 @@ namespace BlindVacationFullstack.Models.Services
                 await _context.SaveChangesAsync();
             }
         }
-        /// <summary>
-        /// Saved the newly recommended trip, and the
-        /// </summary>
-        /// <param name="savedTrip"></param>
-        /// <returns></returns>
+
+
         public async Task SaveTrip(SavedTrip savedTrip)
         {
             try

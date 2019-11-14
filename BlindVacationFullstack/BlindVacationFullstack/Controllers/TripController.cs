@@ -26,6 +26,13 @@ namespace BlindVacationFullstack.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Takes in a survey and parses the answers into an answer string. 
+        /// String is sent to API and the object returned is parsed into a view model.
+        /// That model is returned to the view Details action
+        /// </summary>
+        /// <param name="survey">Survey object</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Index(Survey survey)
         {

@@ -84,7 +84,7 @@ namespace BlindVacationFullstack.Controllers
         //U
 
             /// <summary>
-            /// 
+            /// finds a user with its id and
             /// </summary>
             /// <param name="id"></param>
             /// <returns></returns>
