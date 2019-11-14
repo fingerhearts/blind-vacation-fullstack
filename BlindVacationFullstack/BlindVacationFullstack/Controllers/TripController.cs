@@ -72,12 +72,12 @@ namespace BlindVacationFullstack.Controllers
 
             return View();
         }
-        }        
-        
+
         public async Task<IActionResult> Popular()
         {
             var popular = await _context.GetPopularTrips();
             return View(popular);
         }
+
     }
 }
