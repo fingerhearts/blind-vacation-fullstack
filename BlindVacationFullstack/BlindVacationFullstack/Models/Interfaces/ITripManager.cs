@@ -5,11 +5,14 @@ using System.Threading.Tasks;
 
 namespace BlindVacationFullstack.Models.Interfaces
 {
-    interface ITripManager
+    public interface ITripManager
     {
         Task CreateTrip(SavedTrip trip);
         Task<SavedTrip> GetTrip(int userid, string answerCode);
         Task UpdateTrip(SavedTrip trip);
         Task DeleteTrip(int userid, string answerCode);
+        Task<IEnumerable<PopularTrip>> GetPopularTrips();
     }
+
+
 }
