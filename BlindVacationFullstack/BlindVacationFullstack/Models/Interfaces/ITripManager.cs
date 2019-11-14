@@ -12,6 +12,8 @@ namespace BlindVacationFullstack.Models.Interfaces
         Task UpdateTrip(SavedTrip trip);
         Task DeleteTrip(int userid, string answerCode);
         Task<IEnumerable<PopularTrip>> GetPopularTrips();
+        Task SaveTrip(SavedTrip SavedTrip);
+        Task SaveAsPopularTrip(PopularTrip popularTrip);
     }
 
 

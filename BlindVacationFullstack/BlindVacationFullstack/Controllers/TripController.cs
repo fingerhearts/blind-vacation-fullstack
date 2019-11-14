@@ -14,10 +14,12 @@ namespace BlindVacationFullstack.Controllers
 {
     public class TripController : Controller
     {
-        private readonly ITripManager _context;
-        public TripController(ITripManager context)
+        private readonly ITripManager _trips;
+        private readonly IUserManager _users;
+        public TripController(ITripManager context, IUserManager users)
         {
-            _context = context;
+            _trips = context;
+            _users = users;
         }
         public IActionResult Index()
         {
@@ -57,7 +59,10 @@ namespace BlindVacationFullstack.Controllers
                     var stringResult = await response.Content.ReadAsStringAsync();
                     EditTripViewModel responseItem = JsonConvert.DeserializeObject<EditTripViewModel>(stringResult);
 
+                    //TODO: remove hardcoded data
+                    responseItem.User = await _users.GetUser(1);
 
+                    responseItem.AnswerCode = etvm.AnswerCode;
                     return View("Details", responseItem);
                 }
                 catch (Exception)
@@ -67,16 +72,58 @@ namespace BlindVacationFullstack.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Details(string AnswerCode, string Name, string VacationName, int ID)
+        public async Task<IActionResult> Details(string AnswerCode, string CityName, string VacationName, int UserID)
         {
+            SavedTrip trip = new SavedTrip();
+            trip.AnswerCode = AnswerCode;
+            trip.CityName = CityName;
+            trip.VacationName = VacationName;
+            trip.UserID = UserID;
+            try
+            {
+                await _trips.SaveTrip(trip);
+            }
+            catch (Exception)
+            {
+                return Ok("You already saved a vacation just like that! Try again.");
+            }
 
-            return View();
+            PopularTrip popTrip = new PopularTrip();
+            popTrip.AnswerCode = AnswerCode;
+            popTrip.CityName = CityName;
+            popTrip.VacationName = VacationName;
+            popTrip.Popularity = 0;
+            await _trips.SaveAsPopularTrip(popTrip);
+            return RedirectToAction("MyVacations", UserID);
         }
 
         public async Task<IActionResult> Popular()
         {
-            var popular = await _context.GetPopularTrips();
-            return View(popular);
+            var popular = await _trips.GetPopularTrips();
+            PopularTrip[] popArr = popular.ToArray();
+            bool sorted = false;
+            while (sorted == false)
+            {
+                int count = 0;
+                for (int i = 0; i < popArr.Length; i++)
+                {
+                    if (i < popArr.Length - 1)
+                    {
+                        if (popArr[i].Popularity > popArr[i + 1].Popularity)
+                        {
+                            PopularTrip sort = popArr[i];
+                            popArr[i] = popArr[i + 1];
+                            popArr[i + 1] = sort;
+                            count++;
+                        }
+                    }
+                }
+                if (count == 0)
+                {
+                    sorted = true;
+                }
+            }
+            return View(popArr);
         }
 
     }
