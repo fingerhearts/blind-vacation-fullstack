@@ -12,5 +12,6 @@ namespace BlindVacationFullstack.Models
         public int Price { get; set; }
         public bool HasChildren { get; set; }
         public bool LikesOutdoor { get; set; }
+
     }
 }

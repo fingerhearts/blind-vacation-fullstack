@@ -60,15 +60,25 @@ namespace BlindVacationFullstack.Data
                     UserID = 1,
                     CityName = "Tunisia",
                     VacationName = "Chris bachelor party",
-                    AnswerCode = "0,1,1,0,1"
+                    AnswerCode = "0,1,1,0,1",
+                    InUSA = false,
+                    LikesHot = true,
+                    Price = 1,
+                    HasChildren = false,
+                    LikesOutdoor = true
                 },
                 new SavedTrip
                 {
                     UserID = 1,
                     CityName = "Paris",
                     VacationName = "Chris divorce party",
-                    AnswerCode = "0,1,3,0,0"
-                });
+                    AnswerCode = "0,1,3,0,0",
+                    InUSA = false,
+                    LikesHot = true,
+                    Price = 3,
+                    HasChildren = false,
+                    LikesOutdoor = false
+                }); 
             modelBuilder.Entity<PopularTrip>().HasData(
                 new PopularTrip
                 {
@@ -76,7 +86,12 @@ namespace BlindVacationFullstack.Data
                     CityName = "North Korea",
                     VacationName = "Chris baptism party",
                     AnswerCode = "0,1,1,0,1",
-                    Popularity = 3
+                    Popularity = 3,
+                    InUSA = false,
+                    LikesHot = true,
+                    Price = 1,
+                    HasChildren = false,
+                    LikesOutdoor = true
                 },
                 new PopularTrip
                 {
@@ -84,7 +99,12 @@ namespace BlindVacationFullstack.Data
                     CityName = "Paris",
                     VacationName = "Chris Refugee party",
                     AnswerCode = "0,1,3,0,0",
-                    Popularity = 69
+                    Popularity = 69,
+                    InUSA = false,
+                    LikesHot = true,
+                    Price = 3,
+                    HasChildren = false,
+                    LikesOutdoor = false
                 });
 
 
@@ -93,6 +113,5 @@ namespace BlindVacationFullstack.Data
         public DbSet<User> Users { get; set; }
         public DbSet<SavedTrip> SavedTrips { get; set; }
         public DbSet<PopularTrip> PopularTrips { get; set; }
-
     }
 }

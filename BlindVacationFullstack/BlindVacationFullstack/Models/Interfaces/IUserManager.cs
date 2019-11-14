@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BlindVacationFullstack.Models.ViewModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using static BlindVacationFullstack.Models.User;
 
