@@ -11,7 +11,6 @@ namespace BlindVacationFullstack.Models
         public string CityName { get; set; }
         public string VacationName { get; set; }
         public string AnswerCode { get; set; }
-
         public int Popularity { get; set; } = 0;
     }
 }
