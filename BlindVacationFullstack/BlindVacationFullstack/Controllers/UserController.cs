@@ -15,6 +15,10 @@ namespace BlindVacationFullstack.Controllers
     {
         private readonly IUserManager _context;
 
+        /// <summary>
+        /// Constructor.  Takes in an IUserManager for access to the user database.
+        /// </summary>
+        /// <param name="context"></param>
         public UserController(IUserManager context)
         {
             _context = context;
@@ -25,15 +29,15 @@ namespace BlindVacationFullstack.Controllers
             return View();
         }
         /// <summary>
-        /// Pseudo login method. checks for name and Favorite color
+        /// Pseudo login method. checks for name and Favorite TripItem
         /// </summary>
-        /// <param name="Name"></param>
-        /// <param name="FaveColor"></param>
+        /// <param name="Name">Takes in the name of the user</param>
+        /// <param name="FaveTripItem">Takes in the favorite TripItem enum</param>
         /// <returns>user</returns>
         [HttpPost]
-        public async Task<IActionResult> Index(string Name, Color FaveColor)
+        public async Task<IActionResult> Index(string Name, TripItem FaveTripItem)
         {
-            int userID = await _context.Login(Name, FaveColor);
+            int userID = await _context.Login(Name, FaveTripItem);
             if (userID <= 0)
             {
                 return NotFound();
@@ -54,7 +58,7 @@ namespace BlindVacationFullstack.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,FaveColor")] User user)
+        public async Task<IActionResult> Create([Bind("ID,Name,FaveTripItem")] User user)
         {
             if(ModelState.IsValid)
             {
@@ -103,14 +107,14 @@ namespace BlindVacationFullstack.Controllers
             return View(user);
         }
         /// <summary>
-        /// allows a user to edit their profile by changing their name and/or fave color
+        /// allows a user to edit their profile by changing their name and/or fave TripItem
         /// </summary>
         /// <param name="id"></param>
         /// <param name="user"></param>
         /// <returns>updated user</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,FaveColor")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,FaveTripItem")] User user)
         {
             
             if(id != user.ID)

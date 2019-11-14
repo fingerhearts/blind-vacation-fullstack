@@ -9,25 +9,26 @@ namespace BlindVacationFullstack.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Color FaveColor { get; set; }
-        public enum Color
+        public TripItem FaveTripItem
+        { get; set; }
+        public enum TripItem
         {
-            Yellow = 1,
-            Red,
-            Purple,
-            Cyan,
-            Black,
-            Brown,
-            Green,
-            Turquoise,
-            Orange,
-            Pink,
-            White,
-            Ivory,
-            Blue,
-            Velvet,
-            Gold,
-            Platinum
+            Toothpaste = 1,
+            Underwear,
+            Volleyball,
+            Sunscreen,
+            FlipFlops,
+            Sunglasses,
+            Snowboard,
+            Money,
+            Camera,
+            Charger,
+            Headphones,
+            Passport,
+            Hat,
+            Swimsuit,
+            Games,
+            Snacks
         }
 
         //Nav Properties

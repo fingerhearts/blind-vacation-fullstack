@@ -14,13 +14,28 @@ namespace BlindVacationFullstack.Controllers
 {
     public class TripController : Controller
     {
+        /// <summary>
+        /// Access to the SavedTrips database through the ITripManager interface.
+        /// </summary>
         private readonly ITripManager _trips;
+        /// <summary>
+        /// Access to the Users database table through the IUserManager interface.
+        /// </summary>
         private readonly IUserManager _users;
-        public TripController(ITripManager context, IUserManager users)
+        /// <summary>
+        /// Constructor for TripController. Takes in two interface parameters and defines them to the two corresponding properties.
+        /// </summary>
+        /// <param name="trips">Takes in a ITripManager variable.</param>
+        /// <param name="users">Takes in a IUserManager variable.</param>
+        public TripController(ITripManager trips, IUserManager users)
         {
-            _trips = context;
+            _trips = trips;
             _users = users;
         }
+        /// <summary>
+        /// Default HTTP get function for /Trip. Returns the index view which is a view with a survey.
+        /// </summary>
+        /// <returns>Returns Index.cshtml</returns>
         public IActionResult Index()
         {
             return View();
@@ -32,7 +47,7 @@ namespace BlindVacationFullstack.Controllers
         /// That model is returned to the view Details action
         /// </summary>
         /// <param name="survey">Survey object</param>
-        /// <returns> returns Details View </returns>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Index(Survey survey)
         {
@@ -78,8 +93,17 @@ namespace BlindVacationFullstack.Controllers
                 }
             }
         }
-
-
+        /// <summary>
+        /// This action takes in parameters of the survey and creates a SavedTrip and a PopularTrip. It parses through
+        /// the answer string and creates properties based on the string characters. It saves the
+        /// popular trip to the database, then tries to save the SavedTrip to the database. If an error is thrown,
+        /// an error screen is shown.
+        /// </summary>
+        /// <param name="AnswerCode"> AnswerCode from the survey as a string.</param>
+        /// <param name="CityName">Takes in the city name as a string.</param>
+        /// <param name="VacationName">Takes in the user inputted name of the vacation as a string.</param>
+        /// <param name="UserID">Takes in the user ID of the user performing the action.</param>
+        /// <returns>Returns the view of MyVacations based on the user ID.</returns>
         [HttpPost]
         public async Task<IActionResult> Details(string AnswerCode, string CityName, string VacationName, int UserID)
         {
@@ -135,11 +159,7 @@ namespace BlindVacationFullstack.Controllers
             }
             return RedirectToAction("MyVacations", UserID);
         }
-
-        /// <summary>
-        /// turns an IEnumerable into an array and adds popular vacations. Arranges them based on popularity
-        /// </summary>
-        /// <returns> Popular View </returns>
+        
         public async Task<IActionResult> MyVacations(int userID)
         {
             userID = 1;
@@ -207,7 +227,6 @@ namespace BlindVacationFullstack.Controllers
                 }
             }
         }
-
 
         public async Task<IActionResult> Popular()
         {

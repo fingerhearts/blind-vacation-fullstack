@@ -69,7 +69,7 @@
 
 .IndexButton {
     padding: 10px 20px;
-    background-color: darkgreen;
+    background-Color: darkgreen;
     border-radius: 5px;
     color: white;
     display: block;
@@ -80,7 +80,6 @@
     .IndexButton:hover {
         background-color: green;
         color: white;
-        
     }
 
 h1 {

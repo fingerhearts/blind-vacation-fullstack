@@ -57,9 +57,9 @@ namespace BlindVacationFullstack.Models.Services
             return await _context.Users.FirstOrDefaultAsync(x => x.ID == userid);
         }
 
-        public async Task<int> Login(string Name, User.Color color)
+        public async Task<int> Login(string Name, User.TripItem tripItem)
         {
-            User user = await _context.Users.FirstOrDefaultAsync(x => x.Name == Name && x.FaveColor == color);
+            User user = await _context.Users.FirstOrDefaultAsync(x => x.Name == Name && x.FaveTripItem == tripItem);
             if (user == null)
             {
                 return 0;
