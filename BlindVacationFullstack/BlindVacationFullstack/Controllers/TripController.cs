@@ -32,7 +32,7 @@ namespace BlindVacationFullstack.Controllers
         /// That model is returned to the view Details action
         /// </summary>
         /// <param name="survey">Survey object</param>
-        /// <returns></returns>
+        /// <returns> returns Details View </returns>
         [HttpPost]
         public async Task<IActionResult> Index(Survey survey)
         {
@@ -78,6 +78,8 @@ namespace BlindVacationFullstack.Controllers
                 }
             }
         }
+
+
         [HttpPost]
         public async Task<IActionResult> Details(string AnswerCode, string CityName, string VacationName, int UserID)
         {
@@ -134,6 +136,10 @@ namespace BlindVacationFullstack.Controllers
             return RedirectToAction("MyVacations", UserID);
         }
 
+        /// <summary>
+        /// turns an IEnumerable into an array and adds popular vacations. Arranges them based on popularity
+        /// </summary>
+        /// <returns> Popular View </returns>
         public async Task<IActionResult> MyVacations(int userID)
         {
             userID = 1;
@@ -201,6 +207,7 @@ namespace BlindVacationFullstack.Controllers
                 }
             }
         }
+
 
         public async Task<IActionResult> Popular()
         {
