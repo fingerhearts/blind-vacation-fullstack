@@ -5,6 +5,10 @@ using static BlindVacationFullstack.Models.User;
 
 namespace BlindVacationFullstack.Models.Interfaces
 {
+    /// <summary>
+    /// creates a user, and once created, adds saved trips into this users profile.
+    /// adds the capability of login in
+    /// </summary>
     public interface IUserManager
     {
         Task CreateUser(User user);

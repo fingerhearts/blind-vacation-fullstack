@@ -15,6 +15,10 @@ namespace BlindVacationFullstack.Data
 
         }
 
+        /// <summary>
+        /// seeding data into database
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<SavedTrip>().HasKey(trip =>

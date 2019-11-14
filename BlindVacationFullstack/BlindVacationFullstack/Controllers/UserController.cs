@@ -24,7 +24,12 @@ namespace BlindVacationFullstack.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// Pseudo login method. checks for name and Favorite color
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="FaveColor"></param>
+        /// <returns>user</returns>
         [HttpPost]
         public async Task<IActionResult> Index(string Name, Color FaveColor)
         {
@@ -77,6 +82,12 @@ namespace BlindVacationFullstack.Controllers
         }
 
         //U
+
+            /// <summary>
+            /// finds a user with its id and
+            /// </summary>
+            /// <param name="id"></param>
+            /// <returns></returns>
         public async Task<IActionResult> Edit(int id)
         {
             if(id <= 0)
@@ -91,12 +102,17 @@ namespace BlindVacationFullstack.Controllers
             }
             return View(user);
         }
-
+        /// <summary>
+        /// allows a user to edit their profile by changing their name and/or fave color
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="user"></param>
+        /// <returns>updated user</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,FaveColor")] User user)
         {
+            
             if(id != user.ID)
             {
                 return NotFound();
@@ -114,6 +130,12 @@ namespace BlindVacationFullstack.Controllers
         }
 
         //D
+
+            /// <summary>
+            /// removes a user from the list pof users
+            /// </summary>
+            /// <param name="id"></param>
+            /// <returns></returns>
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0)
