@@ -12,9 +12,9 @@
             <input asp-for="@Model.Name" />
         </fieldset>
         <fieldset>
-            <label asp-for="@Model.FaveColor">What is your favorite color?</label>
-            <select asp-for="@Model.FaveColor" 
-                    asp-items="@Html.GetEnumSelectList(typeof(BlindVacationFullstack.Models.User.Color))"></select>
+            <label asp-for="@Model.FaveTripItem">What is your favorite TripItem?</label>
+            <select asp-for="@Model.FaveTripItem" 
+                    asp-items="@Html.GetEnumSelectList(typeof(BlindVacationFullstack.Models.User.TripItem))"></select>
         </fieldset>
         <button type="submit" value="Details">Login</button>
     </form>

@@ -16,7 +16,7 @@ namespace BlindVacationFullstack.Models.Interfaces
         Task UpdateUser(User user);
         Task DeleteUser(int userid);
         Task<IEnumerable<SavedTrip>> GetSavedTrips(int userid);
-        Task<int> Login(string Name, Color color);
+        Task<int> Login(string Name, TripItem tripItem);
 
     }
 }

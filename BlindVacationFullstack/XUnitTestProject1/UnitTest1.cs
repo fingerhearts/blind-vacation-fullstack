@@ -20,11 +20,11 @@ namespace XUnitTestProject1
             User user = new User();
             user.ID = 1;
             user.Name = "Hoopty";
-            user.FaveColor = User.Color.Blue;
+            user.FaveTripItem = User.TripItem.Hat;
 
             Assert.Equal(1, user.ID);
             Assert.Equal("Hoopty", user.Name);
-            Assert.Equal(User.Color.Blue, user.FaveColor);
+            Assert.Equal(User.TripItem.Hat, user.FaveTripItem);
         }
         [Fact]
         public void GetterSetterTestTrip()
@@ -53,7 +53,7 @@ namespace XUnitTestProject1
                 User user = new User();
                 user.ID = 3;
                 user.Name = "Scoopty";
-                user.FaveColor = User.Color.White;
+                user.FaveTripItem = User.TripItem.Sunscreen;
 
                 await service.CreateUser(user);
                 await context.SaveChangesAsync();
@@ -76,7 +76,7 @@ namespace XUnitTestProject1
                 User user = new User();
                 user.ID = 4;
                 user.Name = "Boopty";
-                user.FaveColor = User.Color.Pink;
+                user.FaveTripItem = User.TripItem.Games;
 
                 context.Add(user);
                 await context.SaveChangesAsync();
@@ -103,7 +103,7 @@ namespace XUnitTestProject1
                 User user = new User();
                 user.ID = 5;
                 user.Name = "Fwoopty";
-                user.FaveColor = User.Color.Gold;
+                user.FaveTripItem = User.TripItem.FlipFlops;
 
                 context.Add(user);
                 await context.SaveChangesAsync();
@@ -129,7 +129,7 @@ namespace XUnitTestProject1
                 User user = new User();
                 user.ID = 6;
                 user.Name = "Goopty";
-                user.FaveColor = User.Color.Brown;
+                user.FaveTripItem = User.TripItem.Headphones;
 
                 context.Add(user);
                 await context.SaveChangesAsync();
@@ -153,7 +153,7 @@ namespace XUnitTestProject1
                 User user = new User();
                 user.ID = 7;
                 user.Name = "Mloopty";
-                user.FaveColor = User.Color.Black;
+                user.FaveTripItem = User.TripItem.Snowboard;
                 context.Add(user);
                 await context.SaveChangesAsync();
 
@@ -176,7 +176,7 @@ namespace XUnitTestProject1
                 User user = new User();
                 user.ID = 8;
                 user.Name = "Loopty";
-                user.FaveColor = User.Color.Cyan;
+                user.FaveTripItem = User.TripItem.Toothpaste;
                 context.Add(user);
                 await context.SaveChangesAsync();
 
@@ -199,7 +199,7 @@ namespace XUnitTestProject1
                 User user = new User();
                 user.ID = 9;
                 user.Name = "Roopty";
-                user.FaveColor = User.Color.Green;
+                user.FaveTripItem = User.TripItem.Volleyball;
                 context.Add(user);
                 await context.SaveChangesAsync();
 
@@ -222,7 +222,7 @@ namespace XUnitTestProject1
                 User user = new User();
                 user.ID = 10;
                 user.Name = "Droopty";
-                user.FaveColor = User.Color.Green;
+                user.FaveTripItem = User.TripItem.Toothpaste;
 
                 UserController controller = new UserController(service);
                 await controller.Create(user);

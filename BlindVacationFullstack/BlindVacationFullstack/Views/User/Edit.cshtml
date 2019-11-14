@@ -15,8 +15,8 @@
         </fieldset>
 
         <fieldset>
-            <label asp-for="@Model.FaveColor">Color</label>
-            <select asp-for="@Model.FaveColor" asp-items="@Html.GetEnumSelectList(typeof(BlindVacationFullstack.Models.User.Color))"> </select>
+            <label asp-for="@Model.FaveTripItem">TripItem</label>
+            <select asp-for="@Model.FaveTripItem" asp-items="@Html.GetEnumSelectList(typeof(BlindVacationFullstack.Models.User.TripItem))"> </select>
         </fieldset>
         <button type="submit" value="Edit">Submit Changes</button>
 

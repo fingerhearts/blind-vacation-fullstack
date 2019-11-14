@@ -31,31 +31,31 @@ namespace BlindVacationFullstack.Data
                 {
                     ID = 1,
                     Name = "Kyungrae",
-                    FaveColor = Color.White
+                    FaveTripItem = TripItem.Underwear
                 },
                 new User
                 {
                     ID = 2,
                     Name = "Karina",
-                    FaveColor = Color.Ivory
+                    FaveTripItem = TripItem.Snacks
                 },
                 new User
                 {
                     ID = 3,
                     Name = "Biniam",
-                    FaveColor = Color.Blue
+                    FaveTripItem = TripItem.Passport
                 },
                 new User
                 {
                     ID = 4,
                     Name = "Enrique",
-                    FaveColor = Color.Cyan
+                    FaveTripItem = TripItem.Games
                 },
                 new User
                 {
                     ID = 5,
                     Name = "Chris",
-                    FaveColor = Color.Pink
+                    FaveTripItem = TripItem.Charger
                 });
 
             modelBuilder.Entity<SavedTrip>().HasData(

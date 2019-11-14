@@ -152,7 +152,7 @@ namespace BlindVacationFullstack.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("FaveColor")
+                    b.Property<int>("FaveTripItem")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -166,31 +166,31 @@ namespace BlindVacationFullstack.Migrations
                         new
                         {
                             ID = 1,
-                            FaveColor = 11,
+                            FaveTripItem = 2,
                             Name = "Kyungrae"
                         },
                         new
                         {
                             ID = 2,
-                            FaveColor = 12,
+                            FaveTripItem = 16,
                             Name = "Karina"
                         },
                         new
                         {
                             ID = 3,
-                            FaveColor = 13,
+                            FaveTripItem = 12,
                             Name = "Biniam"
                         },
                         new
                         {
                             ID = 4,
-                            FaveColor = 4,
+                            FaveTripItem = 15,
                             Name = "Enrique"
                         },
                         new
                         {
                             ID = 5,
-                            FaveColor = 10,
+                            FaveTripItem = 10,
                             Name = "Chris"
                         });
                 });
