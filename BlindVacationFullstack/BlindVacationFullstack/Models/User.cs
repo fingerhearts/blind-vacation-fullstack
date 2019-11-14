@@ -32,7 +32,7 @@ namespace BlindVacationFullstack.Models
 
         //Nav Properties
 
-        public ICollection<Trip> Trips { get; set; }
+        public ICollection<SavedTrip> SavedTrips { get; set; }
 
     }
 }

@@ -44,6 +44,8 @@ namespace BlindVacationFullstack
             options.UseSqlServer(connString));
 
             services.AddScoped<IUserManager, UserService>();
+            services.AddScoped<ITripManager, TripService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
