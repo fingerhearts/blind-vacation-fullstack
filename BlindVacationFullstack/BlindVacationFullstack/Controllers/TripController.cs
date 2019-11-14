@@ -83,11 +83,48 @@ namespace BlindVacationFullstack.Controllers
         [HttpPost]
         public async Task<IActionResult> Details(string AnswerCode, string CityName, string VacationName, int UserID)
         {
-            SavedTrip trip = new SavedTrip();
-            trip.AnswerCode = AnswerCode;
-            trip.CityName = CityName;
-            trip.VacationName = VacationName;
-            trip.UserID = UserID;
+            SavedTrip trip = new SavedTrip
+            {
+                AnswerCode = AnswerCode,
+                CityName = CityName,
+                VacationName = VacationName,
+                UserID = UserID,
+                InUSA = (AnswerCode[0] == '1' ? true : false),
+                LikesHot = (AnswerCode[2] == '1' ? true : false),
+
+                HasChildren = (AnswerCode[6] == '1' ? true : false),
+                LikesOutdoor = (AnswerCode[8] == '1' ? true : false)
+            };
+      
+            PopularTrip popTrip = new PopularTrip
+            {
+                AnswerCode = AnswerCode,
+                CityName = CityName,
+                VacationName = VacationName,
+                Popularity = 0,
+                InUSA = (AnswerCode[0] == '1' ? true : false),
+                LikesHot = (AnswerCode[2] == '1' ? true : false),
+
+                HasChildren = (AnswerCode[6] == '1' ? true : false),
+                LikesOutdoor = (AnswerCode[8] == '1' ? true : false)
+            };
+            switch (AnswerCode[4])
+            {
+                case '1':
+                    trip.Price = 1;
+                    popTrip.Price = 1;
+                    break;
+                case '2':
+                    trip.Price = 2;
+                    popTrip.Price = 2;
+                    break;
+                case '3':
+                    trip.Price = 3;
+                    popTrip.Price = 3;
+                    break;
+            }
+
+            await _trips.SaveAsPopularTrip(popTrip);
             try
             {
                 await _trips.SaveTrip(trip);
@@ -96,13 +133,6 @@ namespace BlindVacationFullstack.Controllers
             {
                 return Ok("You already saved a vacation just like that! Try again.");
             }
-
-            PopularTrip popTrip = new PopularTrip();
-            popTrip.AnswerCode = AnswerCode;
-            popTrip.CityName = CityName;
-            popTrip.VacationName = VacationName;
-            popTrip.Popularity = 0;
-            await _trips.SaveAsPopularTrip(popTrip);
             return RedirectToAction("MyVacations", UserID);
         }
 
@@ -110,6 +140,75 @@ namespace BlindVacationFullstack.Controllers
         /// turns an IEnumerable into an array and adds popular vacations. Arranges them based on popularity
         /// </summary>
         /// <returns> Popular View </returns>
+        public async Task<IActionResult> MyVacations(int userID)
+        {
+            userID = 1;
+            var myTrips = await _users.GetSavedTrips(userID);
+            return View(myTrips);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteSavedTrip(int userID, string answerCode)
+        {
+            await _trips.DeleteTrip(userID, answerCode);
+            return RedirectToAction("MyVacations");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MyVacations(bool InUSA, bool LikesHot, int Price, bool HasChildren, bool LikesOutdoor)
+        {
+            Survey survey = new Survey()
+            {
+                InUSA = InUSA,
+                LikesHot = LikesHot,
+                Price = Price,
+                HasChildren = HasChildren,
+                LikesOutdoor = LikesOutdoor
+            };
+            EditTripViewModel etvm = new EditTripViewModel();
+            etvm.AnswerCode = "";
+            etvm.AnswerCode += survey.InUSA ? "1," : "0,";
+            etvm.AnswerCode += survey.LikesHot ? "1," : "0,";
+            switch (survey.Price)
+            {
+                case 1:
+                    etvm.AnswerCode += "1,";
+                    break;
+                case 2:
+                    etvm.AnswerCode += "2,";
+                    break;
+                case 3:
+                    etvm.AnswerCode += "3,";
+                    break;
+            }
+            etvm.AnswerCode += survey.HasChildren ? "1," : "0,";
+            etvm.AnswerCode += survey.LikesOutdoor ? "1" : "0";
+
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri("https://blindvacationapi.azurewebsites.net");
+                    var response = await client.GetAsync($"api/plan/{etvm.AnswerCode}");
+                    response.EnsureSuccessStatusCode();
+
+                    var stringResult = await response.Content.ReadAsStringAsync();
+                    EditTripViewModel responseItem = JsonConvert.DeserializeObject<EditTripViewModel>(stringResult);
+
+                    //TODO: remove hardcoded data
+                    responseItem.User = await _users.GetUser(1);
+
+                    responseItem.AnswerCode = etvm.AnswerCode;
+                    return View("Details", responseItem);
+                }
+                catch (Exception)
+                {
+                    return BadRequest($"Can't Connect to API :(");
+                }
+            }
+        }
+
+
         public async Task<IActionResult> Popular()
         {
             var popular = await _trips.GetPopularTrips();
