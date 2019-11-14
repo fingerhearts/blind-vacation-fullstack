@@ -1,4 +1,5 @@
 ﻿using BlindVacationFullstack.Models;
+using BlindVacationFullstack.Models.Interfaces;
 using BlindVacationFullstack.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -13,6 +14,11 @@ namespace BlindVacationFullstack.Controllers
 {
     public class TripController : Controller
     {
+        private readonly ITripManager _context;
+        public TripController(ITripManager context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -65,6 +71,13 @@ namespace BlindVacationFullstack.Controllers
         {
 
             return View();
+        }
+        }        
+        
+        public async Task<IActionResult> Popular()
+        {
+            var popular = await _context.GetPopularTrips();
+            return View(popular);
         }
     }
 }

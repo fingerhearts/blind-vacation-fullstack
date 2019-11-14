@@ -28,6 +28,12 @@ namespace BlindVacationFullstack.Models.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<PopularTrip>> GetPopularTrips()
+        {
+            List<PopularTrip> PopTrips = await _context.PopularTrips.ToListAsync();
+            return PopTrips;
+        }
+
         public async Task<SavedTrip> GetTrip(int userid, string answerCode)
         {
             return await _context.SavedTrips.FirstOrDefaultAsync(x => x.AnswerCode == answerCode && x.UserID == userid);
