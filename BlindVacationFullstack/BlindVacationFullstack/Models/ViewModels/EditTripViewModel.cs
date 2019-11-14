@@ -9,7 +9,7 @@ namespace BlindVacationFullstack.Models.ViewModels
     public class EditTripViewModel
     {
         public User User { get; set; }
-        public Trip Trip { get; set; }
+        public SavedTrip SavedTrip { get; set; }
         public string AnswerCode { get; set; }
         public City City { get; set; }
         public Hotel Hotel {get; set;}

@@ -59,6 +59,12 @@ namespace BlindVacationFullstack.Controllers
                     return BadRequest($"Can't Connect to API :(");
                 }
             }
-        }           
+        }
+        [HttpPost]
+        public async Task<IActionResult> Details(string AnswerCode, string Name, string VacationName, int ID)
+        {
+
+            return View();
+        }
     }
 }

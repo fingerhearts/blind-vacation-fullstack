@@ -13,7 +13,8 @@
 <form>
     <input type="hidden" asp-for="@Model.AnswerCode" />
     <input type="hidden" asp-for="@Model.City.Name" />
-    <input asp-for="@Model.Trip.Name" />
+    <input type="hidden" asp-for="@Model.User.ID" value="1" />
+    <input asp-for="@Model.SavedTrip.VacationName" />
     <button type="submit">Save Your Vacation!</button>
 </form>
 
