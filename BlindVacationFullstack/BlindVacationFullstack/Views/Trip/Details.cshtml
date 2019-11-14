@@ -10,13 +10,14 @@
 
 <h4>@Model.Activity.Name</h4>
 
-<form>
+<form asp-action="Details">
     <input type="hidden" asp-for="@Model.AnswerCode" />
     <input type="hidden" asp-for="@Model.City.Name" />
-    <input asp-for="@Model.Trip.Name" />
+    <input type="hidden" asp-for="@Model.User.ID" value="1" />
+    <input asp-for="@Model.SavedTrip.VacationName" />
     <button type="submit">Save Your Vacation!</button>
 </form>
 
-<form>
+<form asp-action="Index">
     <button type="submit">Retake the Survey</button>
 </form>
