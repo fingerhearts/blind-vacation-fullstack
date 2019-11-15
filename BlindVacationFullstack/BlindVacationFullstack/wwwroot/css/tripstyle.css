@@ -1,0 +1,100 @@
+﻿body {
+}
+
+form{
+    margin-top:3%;
+}
+fieldset{
+    margin-left:30%;
+    font-size:1.5em;
+    margin-top:2%;
+}
+label{
+margin-top:1%;
+margin-left:15%
+}
+#userbutton{
+    margin-left:60%;
+}
+
+#cityname {
+    font-size:2em;
+    text-align:center;
+    margin:2%;
+}
+#detailimg {
+    width: 100%;
+    border-radius:25px;
+}
+
+#imgcontainer{
+    width:50%;
+    margin:auto;
+    border-radius:25px;
+    margin-bottom:3%;
+}
+
+#detaildescrip {
+    font-size: 1.5em;
+    text-align: center;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#detailhotel{
+    font-size:1.5em;
+    margin-top:4%;
+    text-align:center;
+    text-decoration:underline;
+}
+
+.detailact {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    text-decoration:underline;
+}
+
+.detailitems {
+    font-size: 1.5em;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#detailchangenamebutton{
+    margin-left:15%;
+}
+
+#savebuttondetail {
+    margin-left: 58.5%;
+    margin-top: 1%;
+}
+/*#retakebuttondetail {
+    margin-left: 58.5%;
+    margin-top: .5%;
+}*/
+
+#retakebuttondetail {
+    margin-left: 36.5%;
+    margin-bottom: 2%;
+}
+
+#footerp {
+    color: white;
+    text-align: center;
+    line-height:3vh;
+    font-size:1.25em;
+}
+
+#detailfooter {
+    height: 3vh;
+    background: rgb(0, 190, 166);
+}
+
+#ppp{
+    font-weight:bold;
+    text-align:center;
+    font-size:1.4em;
+    margin-top:1%;
+}

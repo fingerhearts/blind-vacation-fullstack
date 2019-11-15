@@ -71,8 +71,8 @@ namespace BlindVacationFullstack.Migrations
                 columns: new[] { "ID", "AnswerCode", "CityName", "HasChildren", "InUSA", "LikesHot", "LikesOutdoor", "Popularity", "Price", "VacationName" },
                 values: new object[,]
                 {
-                    { 1, "0,1,1,0,1", "North Korea", false, false, true, true, 3, 1, "Chris baptism party" },
-                    { 2, "0,1,3,0,0", "Paris", false, false, true, false, 69, 3, "Chris Refugee party" }
+                    { 1, "0,1,2,0,1", "Seoul, South Korea", false, false, true, true, 3, 2, "Korea Vacation 2020" },
+                    { 2, "1,0,2,1,0", "Seattle, Washington, USA", false, false, true, false, 69, 2, "Staycation" }
                 });
 
             migrationBuilder.InsertData(
@@ -90,12 +90,12 @@ namespace BlindVacationFullstack.Migrations
             migrationBuilder.InsertData(
                 table: "SavedTrips",
                 columns: new[] { "UserID", "AnswerCode", "CityName", "HasChildren", "InUSA", "LikesHot", "LikesOutdoor", "Price", "VacationName" },
-                values: new object[] { 1, "0,1,1,0,1", "Tunisia", false, false, true, true, 1, "Chris bachelor party" });
+                values: new object[] { 1, "0,1,1,0,1", "Rome, Italy", false, false, true, true, 1, "Summer Historical Holiday" });
 
             migrationBuilder.InsertData(
                 table: "SavedTrips",
                 columns: new[] { "UserID", "AnswerCode", "CityName", "HasChildren", "InUSA", "LikesHot", "LikesOutdoor", "Price", "VacationName" },
-                values: new object[] { 1, "0,1,3,0,0", "Paris", false, false, true, false, 3, "Chris divorce party" });
+                values: new object[] { 1, "0,1,3,0,0", "Paris, France", false, false, true, false, 3, "We need baguettes really badly." });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

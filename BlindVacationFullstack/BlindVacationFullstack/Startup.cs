@@ -36,12 +36,16 @@ namespace BlindVacationFullstack
         {
             services.AddMvc();
 
-            string connString = Environment.IsDevelopment()
-                ? Configuration["ConnectionStrings:DefaultConnection"]
-                : Configuration["ConnectionStrings:ProductionConnection"];
+            //string connString = Environment.IsDevelopment()
+            //    ? Configuration["ConnectionStrings:DefaultConnection"]
+            //    : Configuration["ConnectionStrings:ProductionConnection"];
+
+            //services.AddDbContext<VacationMVCDbContext>(options =>
+            //options.UseSqlServer(connString));
 
             services.AddDbContext<VacationMVCDbContext>(options =>
-            options.UseSqlServer(connString));
+                 options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
 
             services.AddScoped<IUserManager, UserService>();
             services.AddScoped<ITripManager, TripService>();
