@@ -81,7 +81,7 @@ namespace BlindVacationFullstack.Controllers
                     var stringResult = await response.Content.ReadAsStringAsync();
                     EditTripViewModel responseItem = JsonConvert.DeserializeObject<EditTripViewModel>(stringResult);
 
-                    responseItem.Activities = responseItem.Activity.Name.Split("\n\n");
+                    responseItem.Activities = responseItem.Activity.Name.Split("\r\n");
 
                     //TODO: remove hardcoded data
                     responseItem.User = await _users.GetUser(1);
@@ -224,7 +224,7 @@ namespace BlindVacationFullstack.Controllers
                    "2) See Large Carnivores at Wild Animal Sanctuary\n\n" + "The Wild Animal Sanctuary is a 720-acre rescue and educational facility where more than 350 animals rescued from dire situations now roam free.\n\n" +
                    "3) Take a Bike Ride on 85 Miles of Paths\n\n" + "soar along on 1.5 miles of zip line at speeds of up to 50 miles per hour, climb a 42-foot climbing wall and return via 'adrenaline jumping stations' or a 'kamikaze zip'.\n\n";
 
-                    responseItem.Activities = responseItem.Activity.Name.Split("\n\n");
+                    responseItem.Activities = responseItem.Activity.Name.Split("\r\n");
                     responseItem.AnswerCode = etvm.AnswerCode;
                     return View("Details", responseItem);
                 }
