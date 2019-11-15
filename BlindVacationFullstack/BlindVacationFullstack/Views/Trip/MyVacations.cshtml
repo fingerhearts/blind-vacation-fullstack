@@ -1,21 +1,27 @@
 ﻿@model IEnumerable<BlindVacationFullstack.Models.SavedTrip>
 
+<link rel="stylesheet" href="~/css/TripListStyling.css" />
+
+
 @foreach (var item in Model)
 {
-    <h6>@item.CityName</h6>
-    <h6>@item.VacationName</h6>
+    <div class="container">
+        <h3>@item.CityName</h3>
+        <h6>@item.VacationName</h6>
 
-    <form asp-action="MyVacations">
-        <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).InUSA" />
-        <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).LikesHot" />
-        <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).Price" />
-        <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).HasChildren" />
-        <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).LikesOutdoor" />
-        <button type="submit">View Details</button>
-    </form>
-    <form asp-action="DeleteSavedTrip">
-        <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).AnswerCode" />
-        <input type="hidden" asp-for="@Model.First(x => x.UserID == item.UserID).UserID" />
-        <button type="submit">Delete Trip</button>
-    </form>
+
+        <form asp-action="MyVacations">
+            <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).InUSA" />
+            <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).LikesHot" />
+            <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).Price" />
+            <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).HasChildren" />
+            <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).LikesOutdoor" />
+            <button class="view" type="submit">View Details</button>
+        </form>
+        <form asp-action="DeleteSavedTrip">
+            <input type="hidden" asp-for="@Model.First(x => x.AnswerCode == item.AnswerCode).AnswerCode" />
+            <input type="hidden" asp-for="@Model.First(x => x.UserID == item.UserID).UserID" />
+            <button class="delete" type="submit"><span>Delete Trip</span></button>
+        </form>
+    </div>
 }
