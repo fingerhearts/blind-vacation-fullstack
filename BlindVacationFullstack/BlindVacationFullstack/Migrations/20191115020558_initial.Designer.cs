@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlindVacationFullstack.Migrations
 {
     [DbContext(typeof(VacationMVCDbContext))]
-    [Migration("20191114235402_initial")]
+    [Migration("20191115020558_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,28 +62,28 @@ namespace BlindVacationFullstack.Migrations
                         new
                         {
                             ID = 1,
-                            AnswerCode = "0,1,1,0,1",
-                            CityName = "North Korea",
+                            AnswerCode = "0,1,2,0,1",
+                            CityName = "Seoul, South Korea",
                             HasChildren = false,
                             InUSA = false,
                             LikesHot = true,
                             LikesOutdoor = true,
                             Popularity = 3,
-                            Price = 1,
-                            VacationName = "Chris baptism party"
+                            Price = 2,
+                            VacationName = "Korea Vacation 2020"
                         },
                         new
                         {
                             ID = 2,
-                            AnswerCode = "0,1,3,0,0",
-                            CityName = "Paris",
+                            AnswerCode = "1,0,2,1,0",
+                            CityName = "Seattle, Washington, USA",
                             HasChildren = false,
                             InUSA = false,
                             LikesHot = true,
                             LikesOutdoor = false,
                             Popularity = 69,
-                            Price = 3,
-                            VacationName = "Chris Refugee party"
+                            Price = 2,
+                            VacationName = "Staycation"
                         });
                 });
 
@@ -125,25 +125,25 @@ namespace BlindVacationFullstack.Migrations
                         {
                             UserID = 1,
                             AnswerCode = "0,1,1,0,1",
-                            CityName = "Tunisia",
+                            CityName = "Rome, Italy",
                             HasChildren = false,
                             InUSA = false,
                             LikesHot = true,
                             LikesOutdoor = true,
                             Price = 1,
-                            VacationName = "Chris bachelor party"
+                            VacationName = "Summer Historical Holiday"
                         },
                         new
                         {
                             UserID = 1,
                             AnswerCode = "0,1,3,0,0",
-                            CityName = "Paris",
+                            CityName = "Paris, France",
                             HasChildren = false,
                             InUSA = false,
                             LikesHot = true,
                             LikesOutdoor = false,
                             Price = 3,
-                            VacationName = "Chris divorce party"
+                            VacationName = "We need baguettes really badly."
                         });
                 });
 
