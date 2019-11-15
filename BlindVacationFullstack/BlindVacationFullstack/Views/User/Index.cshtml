@@ -5,18 +5,26 @@
     <title></title>
 </head>
 <body>
-    <a asp-action = "Create"> New User </a> 
-    <form asp-action="Index">
-        <fieldset>
-            <label asp-for="@Model.Name"></label>
-            <input asp-for="@Model.Name" />
-        </fieldset>
-        <fieldset>
-            <label asp-for="@Model.FaveTripItem">What is your favorite TripItem?</label>
-            <select asp-for="@Model.FaveTripItem" 
-                    asp-items="@Html.GetEnumSelectList(typeof(BlindVacationFullstack.Models.User.TripItem))"></select>
-        </fieldset>
-        <button type="submit" value="Details">Login</button>
-    </form>
+    <div class="container  w-50">
+        <form asp-action="Index">
+            <fieldset class="form-group">
+                <label class="col-form-label" asp-for="@Model.Name"></label>
+                <input class="form-control" asp-for="@Model.Name" />
+            </fieldset>
+            <fieldset class="form-group">
+                <label class="col-form-label" asp-for="@Model.FaveTripItem">What is your favorite TripItem?</label>
+                <select class="form-control" asp-for="@Model.FaveTripItem" 
+                        asp-items="@Html.GetEnumSelectList(typeof(BlindVacationFullstack.Models.User.TripItem))"></select>
+            </fieldset>
+            <div class="row">
+                <div class="col w-50">
+                    <a asp-action = "Create"> New User </a> 
+                </div>
+                <div class="col w-50 text-right">
+                    <button type="submit" class="btn btn-primary" value="Details">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 </html> 

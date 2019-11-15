@@ -2,7 +2,7 @@
 
 namespace BlindVacationFullstack.Migrations
 {
-    public partial class updatedEnum : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
