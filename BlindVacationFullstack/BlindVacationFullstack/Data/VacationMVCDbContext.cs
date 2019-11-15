@@ -62,18 +62,6 @@ namespace BlindVacationFullstack.Data
                 new SavedTrip
                 {
                     UserID = 1,
-                    CityName = "Rome, Italy",
-                    VacationName = "Summer Historical Holiday",
-                    AnswerCode = "0,1,1,0,1",
-                    InUSA = false,
-                    LikesHot = true,
-                    Price = 1,
-                    HasChildren = false,
-                    LikesOutdoor = true
-                },
-                new SavedTrip
-                {
-                    UserID = 1,
                     CityName = "Paris, France",
                     VacationName = "We need baguettes really badly.",
                     AnswerCode = "0,1,3,0,0",
@@ -100,12 +88,12 @@ namespace BlindVacationFullstack.Data
                 new PopularTrip
                 {
                     ID = 2,
-                    CityName = "Seattle, Washington, USA",
-                    VacationName = "Staycation",
-                    AnswerCode = "1,0,2,1,0",
+                    CityName = "Moscow, Russia",
+                    VacationName = "Bring a coat!!",
+                    AnswerCode = "0,0,2,0,0",
                     Popularity = 69,
                     InUSA = false,
-                    LikesHot = true,
+                    LikesHot = false,
                     Price = 2,
                     HasChildren = false,
                     LikesOutdoor = false
