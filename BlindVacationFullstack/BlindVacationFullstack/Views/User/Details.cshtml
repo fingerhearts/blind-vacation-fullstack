@@ -6,10 +6,24 @@
     <title></title>
 </head>
 <body>
-    <header></header>
-    <h1> @Model.Name </h1>
-    <h2>Your favorite TripItem: @Model.FaveTripItem</h2>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit User Settings</a>
-    <a asp-action="Delete" asp-route-id="@Model.ID">Cancel Account</a>
-    <footer></footer>
+    <div class="container w-75">
+        <h1>User Details</h1>
+        <div class="row">
+            <div class="col-6">
+                <img class="img-fluid img-thumbnail rounded" src="~/assets/imgs/jeremiah.jpg"/>
+            </div>
+            <div class="col-6">
+                <h2>Hello @Model.Name!</h2>
+                <h2>Your favorite TripItem: @Model.FaveTripItem</h2>
+                <div class="row">
+                    <div class="col">
+                        <a class="badge badge-info" asp-action="Edit" asp-route-id="@Model.ID">Edit User Settings</a>
+                    </div>
+                    <div class="col">
+                        <a class="badge badge-danger" asp-action="Delete" asp-route-id="@Model.ID">Cancel Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>

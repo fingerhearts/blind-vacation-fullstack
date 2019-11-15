@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlindVacationFullstack.Migrations
 {
     [DbContext(typeof(VacationMVCDbContext))]
-    [Migration("20191114180447_testingbt")]
-    partial class testingbt
+    [Migration("20191114235402_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,22 @@ namespace BlindVacationFullstack.Migrations
                     b.Property<string>("CityName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("HasChildren")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("InUSA")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LikesHot")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LikesOutdoor")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Popularity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price")
                         .HasColumnType("int");
 
                     b.Property<string>("VacationName")
@@ -49,7 +64,12 @@ namespace BlindVacationFullstack.Migrations
                             ID = 1,
                             AnswerCode = "0,1,1,0,1",
                             CityName = "North Korea",
+                            HasChildren = false,
+                            InUSA = false,
+                            LikesHot = true,
+                            LikesOutdoor = true,
                             Popularity = 3,
+                            Price = 1,
                             VacationName = "Chris baptism party"
                         },
                         new
@@ -57,7 +77,12 @@ namespace BlindVacationFullstack.Migrations
                             ID = 2,
                             AnswerCode = "0,1,3,0,0",
                             CityName = "Paris",
+                            HasChildren = false,
+                            InUSA = false,
+                            LikesHot = true,
+                            LikesOutdoor = false,
                             Popularity = 69,
+                            Price = 3,
                             VacationName = "Chris Refugee party"
                         });
                 });
@@ -73,6 +98,21 @@ namespace BlindVacationFullstack.Migrations
                     b.Property<string>("CityName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("HasChildren")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("InUSA")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LikesHot")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LikesOutdoor")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
                     b.Property<string>("VacationName")
                         .HasColumnType("nvarchar(max)");
 
@@ -86,6 +126,11 @@ namespace BlindVacationFullstack.Migrations
                             UserID = 1,
                             AnswerCode = "0,1,1,0,1",
                             CityName = "Tunisia",
+                            HasChildren = false,
+                            InUSA = false,
+                            LikesHot = true,
+                            LikesOutdoor = true,
+                            Price = 1,
                             VacationName = "Chris bachelor party"
                         },
                         new
@@ -93,6 +138,11 @@ namespace BlindVacationFullstack.Migrations
                             UserID = 1,
                             AnswerCode = "0,1,3,0,0",
                             CityName = "Paris",
+                            HasChildren = false,
+                            InUSA = false,
+                            LikesHot = true,
+                            LikesOutdoor = false,
+                            Price = 3,
                             VacationName = "Chris divorce party"
                         });
                 });
@@ -104,7 +154,7 @@ namespace BlindVacationFullstack.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("FaveColor")
+                    b.Property<int>("FaveTripItem")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -118,31 +168,31 @@ namespace BlindVacationFullstack.Migrations
                         new
                         {
                             ID = 1,
-                            FaveColor = 11,
+                            FaveTripItem = 2,
                             Name = "Kyungrae"
                         },
                         new
                         {
                             ID = 2,
-                            FaveColor = 12,
+                            FaveTripItem = 16,
                             Name = "Karina"
                         },
                         new
                         {
                             ID = 3,
-                            FaveColor = 13,
+                            FaveTripItem = 12,
                             Name = "Biniam"
                         },
                         new
                         {
                             ID = 4,
-                            FaveColor = 4,
+                            FaveTripItem = 15,
                             Name = "Enrique"
                         },
                         new
                         {
                             ID = 5,
-                            FaveColor = 10,
+                            FaveTripItem = 10,
                             Name = "Chris"
                         });
                 });
