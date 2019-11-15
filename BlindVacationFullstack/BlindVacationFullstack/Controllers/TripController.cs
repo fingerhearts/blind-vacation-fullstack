@@ -81,7 +81,7 @@ namespace BlindVacationFullstack.Controllers
                     var stringResult = await response.Content.ReadAsStringAsync();
                     EditTripViewModel responseItem = JsonConvert.DeserializeObject<EditTripViewModel>(stringResult);
 
-                    responseItem.Activities = responseItem.Activity.Name.Split("\r\n");
+                    responseItem.Activities = responseItem.Activity.Name.Split("\n\n");
 
                     //TODO: remove hardcoded data
                     responseItem.User = await _users.GetUser(1);
@@ -216,11 +216,15 @@ namespace BlindVacationFullstack.Controllers
 
                     var stringResult = await response.Content.ReadAsStringAsync();
                     EditTripViewModel responseItem = JsonConvert.DeserializeObject<EditTripViewModel>(stringResult);
-                    responseItem.Activities = responseItem.Activity.Name.Split("\r\n");
+
 
                     //TODO: remove hardcoded data
                     responseItem.User = await _users.GetUser(1);
+                    string dummyString = "1) Visit an Asian Village Populated by Elephants at Denver Zoo\n\n" + "The Denver Zoo's phenomenal Toyota Elephant Passage offers you the chance to get up close and personal with some amazing animals, all in an extremely cool setting designed to look like a rustic Asian village.\n\n" +
+                   "2) See Large Carnivores at Wild Animal Sanctuary\n\n" + "The Wild Animal Sanctuary is a 720-acre rescue and educational facility where more than 350 animals rescued from dire situations now roam free.\n\n" +
+                   "3) Take a Bike Ride on 85 Miles of Paths\n\n" + "soar along on 1.5 miles of zip line at speeds of up to 50 miles per hour, climb a 42-foot climbing wall and return via 'adrenaline jumping stations' or a 'kamikaze zip'.\n\n";
 
+                    responseItem.Activities = responseItem.Activity.Name.Split("\n\n");
                     responseItem.AnswerCode = etvm.AnswerCode;
                     return View("Details", responseItem);
                 }
