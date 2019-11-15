@@ -9,7 +9,7 @@ namespace BlindVacationFullstack.Models
     {
         int ID { get; set; }
         public string Name { get; set; }
-        public string ImgUrl { get; set; }
+        public string ImageUrl { get; set; }
         public int Price { get; set; }
     }
 }
