@@ -62,8 +62,8 @@ namespace BlindVacationFullstack.Data
                 new SavedTrip
                 {
                     UserID = 1,
-                    CityName = "Tunisia",
-                    VacationName = "Chris bachelor party",
+                    CityName = "Rome, Italy",
+                    VacationName = "Summer Historical Holiday",
                     AnswerCode = "0,1,1,0,1",
                     InUSA = false,
                     LikesHot = true,
@@ -74,8 +74,8 @@ namespace BlindVacationFullstack.Data
                 new SavedTrip
                 {
                     UserID = 1,
-                    CityName = "Paris",
-                    VacationName = "Chris divorce party",
+                    CityName = "Paris, France",
+                    VacationName = "We need baguettes really badly.",
                     AnswerCode = "0,1,3,0,0",
                     InUSA = false,
                     LikesHot = true,
@@ -87,26 +87,26 @@ namespace BlindVacationFullstack.Data
                 new PopularTrip
                 {
                     ID = 1,
-                    CityName = "North Korea",
-                    VacationName = "Chris baptism party",
-                    AnswerCode = "0,1,1,0,1",
+                    CityName = "Seoul, South Korea",
+                    VacationName = "Korea Vacation 2020",
+                    AnswerCode = "0,1,2,0,1",
                     Popularity = 3,
                     InUSA = false,
                     LikesHot = true,
-                    Price = 1,
+                    Price = 2,
                     HasChildren = false,
                     LikesOutdoor = true
                 },
                 new PopularTrip
                 {
                     ID = 2,
-                    CityName = "Paris",
-                    VacationName = "Chris Refugee party",
-                    AnswerCode = "0,1,3,0,0",
+                    CityName = "Seattle, Washington, USA",
+                    VacationName = "Staycation",
+                    AnswerCode = "1,0,2,1,0",
                     Popularity = 69,
                     InUSA = false,
                     LikesHot = true,
-                    Price = 3,
+                    Price = 2,
                     HasChildren = false,
                     LikesOutdoor = false
                 });

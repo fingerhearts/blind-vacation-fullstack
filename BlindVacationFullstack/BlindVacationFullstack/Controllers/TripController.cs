@@ -81,6 +81,8 @@ namespace BlindVacationFullstack.Controllers
                     var stringResult = await response.Content.ReadAsStringAsync();
                     EditTripViewModel responseItem = JsonConvert.DeserializeObject<EditTripViewModel>(stringResult);
 
+                    responseItem.Activities = responseItem.Activity.Name.Split("\r\n");
+
                     //TODO: remove hardcoded data
                     responseItem.User = await _users.GetUser(1);
 
@@ -214,6 +216,7 @@ namespace BlindVacationFullstack.Controllers
 
                     var stringResult = await response.Content.ReadAsStringAsync();
                     EditTripViewModel responseItem = JsonConvert.DeserializeObject<EditTripViewModel>(stringResult);
+                    responseItem.Activities = responseItem.Activity.Name.Split("\r\n");
 
                     //TODO: remove hardcoded data
                     responseItem.User = await _users.GetUser(1);

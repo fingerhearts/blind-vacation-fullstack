@@ -3,24 +3,37 @@
 <h2>@Model.City.Name</h2>
 <p>@Model.City.Description</p>
 
-<img src="@Model.City.ImgUrl" />
+<img src="@Model.City.ImageUrl" />
 
 <h3>@Model.Hotel.Name</h3>
-<img src="@Model.Hotel.ImgUrl" />
+<img src="@Model.Hotel.ImageUrl" />
+@{ 
+    int count = 2;
+}
 
-<h4>@Model.Activity.Name</h4>
+@foreach (var item in Model.Activities)
+{
+    if (count % 2 == 0)
+    {
+    <h6>@item</h6>
+    }
+    else
+    {
+        <p>@item</p>
+    }
+}
 
 <form asp-action="Details">
     <input type="hidden" asp-for="AnswerCode" value="@Model.AnswerCode" />
     <div>
-    <input type="hidden" asp-for="CityName" value="@Model.City.Name" />
+        <input type="hidden" asp-for="CityName" value="@Model.City.Name" />
     </div>
     <div>
-    <input type="hidden" asp-for="UserID" value="@Model.User.ID" />
+        <input type="hidden" asp-for="UserID" value="@Model.User.ID" />
     </div>
     <fieldset>
         <label asp-for="VacationName"> Add a name to your vacation:</label>
-    <input asp-for="VacationName" value="" />
+        <input asp-for="VacationName" value="" />
     </fieldset>
     <button type="submit">Save Your Vacation!</button>
 </form>
