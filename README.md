@@ -46,16 +46,17 @@ https://github.com/orgs/fingerhearts/projects/1
 ---
 
 ### Domain Model
-![DomainModel](https://github.com/fingerhearts/blind-vacation-fullstack/blob/development/assets/domain-model-fullstack.jpg)
+![DomainModel](https://github.com/fingerhearts/blind-vacation-fullstack/blob/development/assets/domain-model-fullstack-ver1.1.jpg)
 
 ---
 
 ### Entity Relationship Diagram
-![ERD](https://github.com/fingerhearts/blind-vacation-fullstack/blob/development/assets/erd-fullstack.jpg)
+![ERD](https://github.com/fingerhearts/blind-vacation-fullstack/blob/development/assets/erd-fullstack-ver1.1.jpg)
 
 * Users table has one to many relationship with SavedCodes table
 
 ---
 
 ### Change Log
+1.1: *Domain Model and ERD updated* - 16 Nov 2019
 1.0: *Blind Vacation Fullstack Scaffolded* - 11 Nov 2019
