@@ -161,8 +161,6 @@ namespace BlindVacationFullstack.Controllers
         /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-
-        
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _context.DeleteUser(id);

@@ -15,12 +15,10 @@ namespace BlindVacationFullstack.Models.Services
         {
             _context = context;
         }
-
         /// <summary>
         /// Takes in a user and adds the user to the database.
         /// </summary>
         /// <param name="user">Takes in a user to be save in the database.</param>
-        /// <returns></returns>
         public async Task CreateUser(User user)
         {
             await _context.AddAsync(user);
@@ -30,7 +28,6 @@ namespace BlindVacationFullstack.Models.Services
         /// Takes in a user ID, queries the database for the ID and removes that ID from the database.
         /// </summary>
         /// <param name="userid">Takes in the user ID as an integer.</param>
-        /// <returns></returns>
         public async Task DeleteUser(int userid)
         {
             _context.Remove(await GetUser(userid));
@@ -56,7 +53,12 @@ namespace BlindVacationFullstack.Models.Services
         {
             return await _context.Users.FirstOrDefaultAsync(x => x.ID == userid);
         }
-
+        /// <summary>
+        /// Takes in the user name and checks the Trip Item to "Log the user in".
+        /// </summary>
+        /// <param name="Name">Takes in the user's name</param>
+        /// <param name="tripItem">Takes in the trip item ENUM</param>
+        /// <returns>Returns the User's ID.</returns>
         public async Task<int> Login(string Name, User.TripItem tripItem)
         {
             User user = await _context.Users.FirstOrDefaultAsync(x => x.Name == Name && x.FaveTripItem == tripItem);
@@ -69,7 +71,6 @@ namespace BlindVacationFullstack.Models.Services
                 return user.ID;
             }
         }
-
         /// <summary>
         /// Takes in a user and updates the database with new user details.
         /// </summary>

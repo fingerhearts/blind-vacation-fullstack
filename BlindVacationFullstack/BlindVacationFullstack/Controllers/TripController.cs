@@ -149,7 +149,7 @@ namespace BlindVacationFullstack.Controllers
                     popTrip.Price = 3;
                     break;
             }
-
+            
             await _trips.SaveAsPopularTrip(popTrip);
             try
             {
@@ -161,21 +161,41 @@ namespace BlindVacationFullstack.Controllers
             }
             return RedirectToAction("MyVacations", UserID);
         }
-        
+        /// <summary>
+        /// Grabs my vacations based on user ID.
+        /// </summary>
+        /// <param name="userID">Takes in the user's ID</param>
+        /// <returns>Returns the "trips/MyVacations" view</returns>
         public async Task<IActionResult> MyVacations(int userID)
         {
+            //TODO: fix hardcoded data
             userID = 1;
             var myTrips = await _users.GetSavedTrips(userID);
             return View(myTrips);
         }
-
+        /// <summary>
+        /// Takes in the user ID and answerCode of the saved trip and calls the DeleteTrip method of the ITripController
+        /// </summary>
+        /// <param name="userID">Takes in the user's ID</param>
+        /// <param name="answerCode">Takes in the string of the answerCode</param>
+        /// <returns>Redirects to /trip/MyVacations</returns>
         [HttpPost]
         public async Task<IActionResult> DeleteSavedTrip(int userID, string answerCode)
         {
             await _trips.DeleteTrip(userID, answerCode);
             return RedirectToAction("MyVacations");
         }
-
+        /// <summary>
+        /// This action takes in parameters of the survey and creates a SavedTrip and a PopularTrip after creating a new Survey. It parses through
+        /// the answer string and creates properties based on the string characters. It saves the
+        /// popular trip to the database, then tries to save the SavedTrip to the database. If an error is thrown,
+        /// an error screen is shown.
+        /// </summary>
+        /// <param name="AnswerCode"> AnswerCode from the survey as a string.</param>
+        /// <param name="CityName">Takes in the city name as a string.</param>
+        /// <param name="VacationName">Takes in the user inputted name of the vacation as a string.</param>
+        /// <param name="UserID">Takes in the user ID of the user performing the action.</param>
+        /// <returns>Returns the view of MyVacations based on the user ID.</returns>
         [HttpPost]
         public async Task<IActionResult> MyVacations(bool InUSA, bool LikesHot, int Price, bool HasChildren, bool LikesOutdoor)
         {
@@ -231,7 +251,10 @@ namespace BlindVacationFullstack.Controllers
                 }
             }
         }
-
+        /// <summary>
+        /// Calls the GetPopularTrips method of the ITripController and sorts the result based on the Popularity property. Send the data to the trip/Popular view.
+        /// </summary>
+        /// <returns>Returns the trip/popular view with the sorted data.</returns>
         public async Task<IActionResult> Popular()
         {
             var popular = await _trips.GetPopularTrips();
