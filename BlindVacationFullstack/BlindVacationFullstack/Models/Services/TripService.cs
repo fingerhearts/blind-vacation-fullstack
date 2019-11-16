@@ -18,12 +18,6 @@ namespace BlindVacationFullstack.Models.Services
         {
             _context = context;
         }
-        public async Task CreateTrip(SavedTrip trip)
-        {
-            await _context.AddAsync(trip);
-            await _context.SaveChangesAsync();
-
-        }
         /// <summary>
         /// allows a user to delete one of their saved trips by using it's answerCode
         /// </summary>
@@ -82,8 +76,10 @@ namespace BlindVacationFullstack.Models.Services
                 await _context.SaveChangesAsync();
             }
         }
-
-
+        /// <summary>
+        /// Saves a trip as a SavedTrip to it's respective table.
+        /// </summary>
+        /// <param name="SavedTrip">Takes in the new SavedTrip to save.</param>
         public async Task SaveTrip(SavedTrip savedTrip)
         {
             try
@@ -96,7 +92,10 @@ namespace BlindVacationFullstack.Models.Services
                 throw e;
             }
         }
-
+        /// <summary>
+        /// Updates a SavedTrip.
+        /// </summary>
+        /// <param name="trip">Takes in the SavedTrip to be updated.</param>
         public async Task UpdateTrip(SavedTrip trip)
         {
             _context.Update(trip);

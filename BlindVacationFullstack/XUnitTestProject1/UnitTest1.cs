@@ -27,16 +27,119 @@ namespace XUnitTestProject1
             Assert.Equal(User.TripItem.Hat, user.FaveTripItem);
         }
         [Fact]
-        public void GetterSetterTestTrip()
+        public void GetterSetterTestActivity()
         {
-            Trip trip = new Trip();
-            trip.UserID = 2;
-            trip.RecommendationCode = 1234;
-            trip.Name = "Woopty";
+            Activity activity = new Activity()
+            {
+                Name = "Hamburger",
+                IsOutdoor = true,
+                FamilyFriendly = false
+            };
 
-            Assert.Equal(2, trip.UserID);
-            Assert.Equal(1234, trip.RecommendationCode);
-            Assert.Equal("Woopty", trip.Name);
+            Assert.Equal("Hamburger", activity.Name);
+            Assert.True(activity.IsOutdoor);
+            Assert.False(activity.FamilyFriendly);
+        }
+        [Fact]
+        public void GetterSetterTestCity()
+        {
+            City city = new City()
+            {
+                Name = "Honolulu",
+                Description = "Hot",
+                ImageUrl = "something",
+                InUSA = true,
+                IsHot = true,
+                Price = 3
+            };
+            Assert.Equal("Honolulu", city.Name);
+            Assert.Equal("Hot", city.Description);
+            Assert.Equal("something", city.ImageUrl);
+            Assert.True(city.InUSA);
+            Assert.True(city.IsHot);
+            Assert.Equal(3, city.Price);
+        }
+        [Fact]
+        public void GetterSetterTestHotel()
+        {
+            Hotel hotel = new Hotel()
+            {
+                Name = "Meow",
+                ImageUrl = "help",
+                Price = 3
+            };
+            Assert.Equal("Meow", hotel.Name);
+            Assert.Equal("help", hotel.ImageUrl);
+            Assert.Equal(3, hotel.Price);
+        }
+        [Fact]
+        public void GetterSetterTestPopularTrip()
+        {
+            PopularTrip popularTrip = new PopularTrip
+            {
+                ID = 100,
+                CityName = "Crabs",
+                VacationName = "lobsters",
+                AnswerCode = "shwoop",
+                Popularity = 13,
+                InUSA = true,
+                LikesHot = true,
+                Price = 1,
+                HasChildren = false,
+                LikesOutdoor = true
+            };
+            Assert.Equal(100, popularTrip.ID);
+            Assert.Equal("Crabs", popularTrip.CityName);
+            Assert.Equal("lobsters", popularTrip.VacationName);
+            Assert.Equal("shwoop", popularTrip.AnswerCode);
+            Assert.Equal(13, popularTrip.Popularity);
+            Assert.True(popularTrip.InUSA);
+            Assert.True(popularTrip.LikesHot);
+            Assert.Equal(1, popularTrip.Price);
+            Assert.False(popularTrip.HasChildren);
+            Assert.True(popularTrip.LikesOutdoor);
+        }
+        [Fact]
+        public void GetterSetterTestSavedTrip()
+        {
+            SavedTrip savedtrip = new SavedTrip
+            {
+                UserID = 50,
+                CityName = "Hubba",
+                VacationName = "lubba",
+                AnswerCode = "loop",
+                InUSA = false,
+                LikesHot = false,
+                Price = 2,
+                HasChildren = true,
+                LikesOutdoor = true,
+            };
+            Assert.Equal(50, savedtrip.UserID);
+            Assert.Equal("Hubba", savedtrip.CityName);
+            Assert.Equal("lubba", savedtrip.VacationName);
+            Assert.Equal("loop", savedtrip.AnswerCode);
+            Assert.False(savedtrip.InUSA);
+            Assert.False(savedtrip.LikesHot);
+            Assert.Equal(2, savedtrip.Price);
+            Assert.True(savedtrip.HasChildren);
+            Assert.True(savedtrip.LikesOutdoor);
+        }
+        [Fact]
+        public void GetterSetterTestSurvey()
+        {
+            Survey survey = new Survey()
+            {
+                InUSA = false,
+                LikesHot = true,
+                Price = 3,
+                HasChildren = true,
+                LikesOutdoor = false
+            };
+            Assert.False(survey.InUSA);
+            Assert.True(survey.LikesHot);
+            Assert.Equal(3, survey.Price);
+            Assert.True(survey.HasChildren);
+            Assert.False(survey.LikesOutdoor);
         }
         #endregion
         #region DB CRUD tests

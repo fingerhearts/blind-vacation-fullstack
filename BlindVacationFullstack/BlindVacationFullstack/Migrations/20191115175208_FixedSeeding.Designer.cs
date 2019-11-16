@@ -3,14 +3,16 @@ using BlindVacationFullstack.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlindVacationFullstack.Migrations
 {
     [DbContext(typeof(VacationMVCDbContext))]
-    partial class VacationMVCDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191115175208_FixedSeeding")]
+    partial class FixedSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

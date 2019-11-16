@@ -16,16 +16,15 @@
     int count = 2;
 }
 
+        <p class="detailact">Activities we thought you'd be interested in based off your responses in the survey: <br /></p>
 @foreach (var item in Model.Activities)
 {
     if (count % 2 == 0)
     {
-        <p class="detailact">Activities we thought you'd be interested in based off your responses in the survey: <br /></p>
         <h5 class="detailitems">@item</h5>
     }
     else
     {
-        <p class="detailact">Activities we thought you'd be interested in based off your responses in the survey: <br /></p>
 
         <p class="detailitems">@item</p>
     }
@@ -47,8 +46,8 @@
 </form>
 
 <div id="retakebuttondetail">
-<form asp-action="Index">
-    <button id="retakebuttondetail" type="submit">Retake the Survey</button>
+<form>
+    <button id="retakebuttondetail" type="submit" href="~/trip/">Retake the Survey</button>
 </form>
 </div>
 <footer id="detailfooter"><p id="footerp">Brainless Vacay</p></footer>
