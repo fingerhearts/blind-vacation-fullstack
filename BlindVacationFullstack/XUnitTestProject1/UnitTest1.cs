@@ -26,18 +26,6 @@ namespace XUnitTestProject1
             Assert.Equal("Hoopty", user.Name);
             Assert.Equal(User.TripItem.Hat, user.FaveTripItem);
         }
-        [Fact]
-        public void GetterSetterTestTrip()
-        {
-            Trip trip = new Trip();
-            trip.UserID = 2;
-            trip.RecommendationCode = 1234;
-            trip.Name = "Woopty";
-
-            Assert.Equal(2, trip.UserID);
-            Assert.Equal(1234, trip.RecommendationCode);
-            Assert.Equal("Woopty", trip.Name);
-        }
         #endregion
         #region DB CRUD tests
         [Fact]
