@@ -1,0 +1,45 @@
+﻿@model BlindVacationFullstack.Models.Survey
+
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="~/css/reset.css" />
+        <link rel="stylesheet" href="~/css/tripstyle.css" />
+    </head>
+    <body>
+        <form asp-action="Index">
+            <fieldset>
+                Would you like to travel inside the United States or go abroad?<br />
+                <label asp-for="@Model.InUSA" />
+                <input type="radio" asp-for="@Model.InUSA" value="True" /> In USA
+                <input type="radio" asp-for="@Model.InUSA" value="False" /> Outside USA
+            </fieldset>
+            <fieldset>
+                Do you want to travel to a hot or cold location?<br />
+                <label asp-for="@Model.LikesHot" />
+                <input type="radio" asp-for="@Model.LikesHot" value="True" /> Hot
+                <input type="radio" asp-for="@Model.LikesHot" value="False" /> Cold
+            </fieldset>
+            <fieldset>
+                What kind of budget are you traveling with?<br />
+                <label asp-for="@Model.Price" />
+                <input type="radio" asp-for="@Model.Price" value="1" /> $
+                <input type="radio" asp-for="@Model.Price" value="2" /> $$
+                <input type="radio" asp-for="@Model.Price" value="3" /> $$$
+            </fieldset>
+            <fieldset>
+                Are you going to be traveling with children?<br />
+                <label asp-for="@Model.HasChildren" />
+                <input type="radio" asp-for="@Model.HasChildren" value="True" /> Yes
+                <input type="radio" asp-for="@Model.HasChildren" value="False" /> No
+            </fieldset>
+            <fieldset>
+                Do you want to do an outdoor or indoor focused vacation?<br />
+                <label asp-for="@Model.LikesOutdoor" />
+                <input type="radio" asp-for="@Model.LikesOutdoor" value="True" /> Outdoor
+                <input type="radio" asp-for="@Model.LikesOutdoor" value="False" /> Indoor
+            </fieldset>
+            <button id="userbutton" type="submit">Create a Vacation Plan!</button>
+        </form>
+        </body>
+        </html>

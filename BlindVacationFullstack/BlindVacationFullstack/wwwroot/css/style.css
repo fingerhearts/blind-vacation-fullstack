@@ -1,0 +1,142 @@
+﻿body {
+    background-color: beige;
+    color: black;
+}
+
+#box {
+    padding-left: 20%;
+    width: 100%;
+}
+#home_image {
+    box-sizing: border-box;
+    display: inline;
+    width: 25%;
+    margin: 5px auto;
+    border-radius: 25px;
+}
+#home_image1 {
+    box-sizing: border-box;
+    display: inline;
+    width: 75.5%;
+    margin: 5px auto;
+    border-radius: 25px;
+}
+#home_image2 {
+    box-sizing: border-box;
+    display: inline;
+    width: 10%;
+    margin: 10px auto;
+    border-radius: 25px;
+}
+#home_image3 {
+    box-sizing: border-box;
+    display: inline;
+    width: 25%;
+    margin: 10px auto;
+    border-radius: 25px;
+}
+#home_image4 {
+    box-sizing: border-box;
+    display: inline;
+    width: 20%;
+    margin: 30px auto;
+    border-radius: 25px;
+}
+
+#home_image5 {
+    box-sizing: border-box;
+    display: inline;
+    width: 90%;
+    margin-left: 10%;
+    border-radius: 25px;
+}
+#home_image6 {
+    box-sizing: border-box;
+    display: inline;
+    width: 25.5%;
+    height: 20%;
+    margin: 5px auto;
+    border-radius: 25px;
+}
+#home_image7 {
+    box-sizing: border-box;
+    display: inline;
+    width: 90%;
+    height: 20%;
+    margin-left: 8%;
+    border-radius: 25px;
+}
+
+.IndexButton {
+    padding: 10px 20px;
+    background-Color: darkgreen;
+    border-radius: 5px;
+    color: white;
+    display: block;
+    margin: 10px auto;
+    width: 100px;
+    text-align: center;
+}
+    .IndexButton:hover {
+        background-color: green;
+        color: white;
+    }
+
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.bg-light {
+    background-color: darkgreen;
+}
+
+
+#p11 {
+    text-align: center;
+    width: 100%;
+    font-size: 1vw;
+    margin-left: 4%;
+}
+#p12 {
+    text-align: center;
+    width: 100%;
+    font-size: 1vw;
+    font-weight:bold;
+    margin-left:4.5%;
+}
+
+#test {
+    width: 20%;
+    float: left;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    margin-left: 18%;
+}
+#test2 {
+    width: 20%;
+    margin-left: 1%;
+    float: left;
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+#test3 {
+    width: 20%;
+    float: left;
+    margin-top: 5%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
+.navbar{
+    height:8vh;
+}
+
+#spacetest{
+    margin-left:5.5vw;
+}
+
+.navbar-brand{
+    margin-left:20vw;
+    font-size:2em;
+}

@@ -1,0 +1,29 @@
+﻿@model BlindVacationFullstack.Models.User
+@{
+    ViewData["Title"] = "Details";
+}
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="container w-75">
+        <h1>User Details</h1>
+        <div class="row">
+            <div class="col-6">
+                <img class="img-fluid img-thumbnail rounded" src="~/assets/imgs/jeremiah.jpg"/>
+            </div>
+            <div class="col-6">
+                <h2>Hello @Model.Name!</h2>
+                <h2>Your favorite TripItem: @Model.FaveTripItem</h2>
+                <div class="row">
+                    <div class="col">
+                        <a class="badge badge-info" asp-action="Edit" asp-route-id="@Model.ID">Edit User Settings</a>
+                    </div>
+                    <div class="col">
+                        <a class="badge badge-danger" asp-action="Delete" asp-route-id="@Model.ID">Cancel Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

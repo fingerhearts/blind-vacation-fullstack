@@ -1,0 +1,53 @@
+﻿@model BlindVacationFullstack.Models.ViewModels.EditTripViewModel
+
+<link rel="stylesheet" href="~/css/reset.css" />
+<link rel="stylesheet" href="~/css/tripstyle.css" />
+
+<h2 id="cityname">You're going to: @Model.City.Name</h2>
+<div id="imgcontainer">
+    <img id="detailimg" src="@Model.City.ImageUrl" />
+</div>
+
+<p id="detaildescrip">@Model.City.Description</p>
+
+<p id="detailhotel">Based on your response from the survey, we recommend staying at: <p id="ppp">@Model.Hotel.Name</p>
+<img src="@Model.Hotel.ImageUrl" />
+@{
+    int count = 2;
+}
+
+        <p class="detailact">Activities we thought you'd be interested in based off your responses in the survey: <br /></p>
+@foreach (var item in Model.Activities)
+{
+    if (count % 2 == 0)
+    {
+        <h5 class="detailitems">@item</h5>
+    }
+    else
+    {
+
+        <p class="detailitems">@item</p>
+    }
+}
+
+<form asp-action="Details">
+    <input type="hidden" asp-for="AnswerCode" value="@Model.AnswerCode" />
+    <div>
+        <input type="hidden" asp-for="CityName" value="@Model.City.Name" />
+    </div>
+    <div>
+        <input type="hidden" asp-for="UserID" value="@Model.User.ID" />
+    </div>
+    <fieldset id="detailchangenamebutton">
+        <label asp-for="VacationName"> Add a name to your vacation:</label>
+        <input asp-for="VacationName" value="" />
+    </fieldset>
+    <button id="savebuttondetail" type="submit">Save Your Vacation!</button>
+</form>
+
+<div id="retakebuttondetail">
+<form>
+    <button id="retakebuttondetail" type="submit" href="~/trip/">Retake the Survey</button>
+</form>
+</div>
+<footer id="detailfooter"><p id="footerp">Brainless Vacay</p></footer>
