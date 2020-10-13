@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BlindVacationFullstack.Migrations
 {
@@ -11,7 +12,7 @@ namespace BlindVacationFullstack.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CityName = table.Column<string>(nullable: true),
                     VacationName = table.Column<string>(nullable: true),
                     AnswerCode = table.Column<string>(nullable: true),
@@ -32,7 +33,7 @@ namespace BlindVacationFullstack.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(nullable: true),
                     FaveTripItem = table.Column<int>(nullable: false)
                 },
@@ -72,7 +73,7 @@ namespace BlindVacationFullstack.Migrations
                 values: new object[,]
                 {
                     { 1, "0,1,2,0,1", "Seoul, South Korea", false, false, true, true, 3, 2, "Korea Vacation 2020" },
-                    { 2, "1,0,2,1,0", "Seattle, Washington, USA", false, false, true, false, 69, 2, "Staycation" }
+                    { 2, "0,0,2,0,0", "Moscow, Russia", false, false, false, false, 69, 2, "Bring a coat!!" }
                 });
 
             migrationBuilder.InsertData(
@@ -86,11 +87,6 @@ namespace BlindVacationFullstack.Migrations
                     { 4, 15, "Enrique" },
                     { 5, 10, "Chris" }
                 });
-
-            migrationBuilder.InsertData(
-                table: "SavedTrips",
-                columns: new[] { "UserID", "AnswerCode", "CityName", "HasChildren", "InUSA", "LikesHot", "LikesOutdoor", "Price", "VacationName" },
-                values: new object[] { 1, "0,1,1,0,1", "Rome, Italy", false, false, true, true, 1, "Summer Historical Holiday" });
 
             migrationBuilder.InsertData(
                 table: "SavedTrips",

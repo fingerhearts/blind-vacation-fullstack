@@ -74,7 +74,7 @@ namespace BlindVacationFullstack.Controllers
             {
                 try
                 {
-                    client.BaseAddress = new Uri("https://blindvacationapi.azurewebsites.net");
+                    client.BaseAddress = new Uri("https://blind-vacation-backend.herokuapp.com");
                     var response = await client.GetAsync($"api/plan/{etvm.AnswerCode}");
                     response.EnsureSuccessStatusCode();
 
@@ -230,7 +230,7 @@ namespace BlindVacationFullstack.Controllers
             {
                 try
                 {
-                    client.BaseAddress = new Uri("https://blindvacationapi.azurewebsites.net");
+                    client.BaseAddress = new Uri("https://blind-vacation-backend.herokuapp.com");
                     var response = await client.GetAsync($"api/plan/{etvm.AnswerCode}");
                     response.EnsureSuccessStatusCode();
 
