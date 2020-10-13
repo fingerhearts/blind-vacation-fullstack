@@ -2,10 +2,10 @@
 
 ## Blind Vacation - Full-Stack
 
-### Team Fingerhearts ❤
-
 ![Actions Status](https://github.com/fingerhearts/blind-vacation-fullstack/workflows/build/badge.svg)  
 ![Actions Status](https://github.com/fingerhearts/blind-vacation-fullstack/workflows/deploy/badge.svg)
+
+### Team Fingerhearts ❤
 
 * Chris Cummings
 * Enrique A Rivera De Leon
